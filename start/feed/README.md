@@ -1,23 +1,26 @@
-#Publish Your Inventory
+#Add your Data Feeds
 
-###Share your Product Availability and Publish a Materials Wishlist
+###Feature your Environmental Product Declaration (EPD)
 
-[Send Us Links](add) to include your inventory of reusable, shared and recycled items and your wishlist of needed items.  
-If you don't have an existing server to host your files, we'll help you post your listings for free using GitHub.  
+Let us know if you have certified EPD profiles to highlight in our [EPD Template Design Project](../../../io/template/).
+
+###Publish Your Inventory and Wishlist
+
+[Send Links](add) to include your inventory of items (including reusable, shared and recycled) and needed items.  If you don't have an existing server to host your files, use GitHub for CSV files or send a link to a Google Sheet.  
 
 Post as CSV files using the following Google Merchant Center standard:  
 [entity1\_inventory.csv](entity1_inventory.csv) and [entity1\_wishlist.csv](entity1_wishlist.csv)  
 
 Replace "entity1" with a short lowercase name (handle) for yourself or your organization.  
-Use underscores instead of spaces.  
+Use dashes or underscores instead of spaces.  
 
 We'll generate embeddable lists that you can also display in your own website.  
 
 <b>Examples of items to list:</b>  
+Glass, plastic, metals  
 Rocks, slate, bricks  
 Byproducts of farming  
-Byproducts of food and beer production  
-Glass, plastic, metals  
+Byproducts of food and beer production    
 Infinitely recyclable [PDK plastic](https://www.packagingdigest.com/sustainable-packaging/new-plastic-for-food-packaging-is-infinitely-recyclable-2019-07-25)   
 Used furniture  
 Used lumber  

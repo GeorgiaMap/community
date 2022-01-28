@@ -3,18 +3,29 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<title>Community Modeling Data</title>
+<title>Impact Modeling Tools</title>
 <link rel="icon" type="image/x-icon" href="img/logo/favicon.png" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script type="text/javascript" src="js/jquery/jquery-1.12.4.min.js"></script>
+<meta name="description" content="Build projects with Life Cycle Assessment data from the US Environmental Protection Agency (EPA), US Bureau of Economic Analysis (BEA), US Department of Commerce and the US Bureau of Labor Statistics (BLS)">
+<meta name="keywords" content="Input, Output, Environmental, Impact, Model, Commodities, Industries, Energy, Agriculture, Forestry, Manufacturing, Waste, Energy, Bioproducts, Inflow, Outflow, Job Levels, Value-Added, Air Quality, Greenhouse Gas Emissions, GHG, Land Use, Health, US Bureau of Economic Analysis, BEA, US Department of Commerce, US Environmental Protection Agency, EPA">
+<script type="text/javascript" src="../localsite/js/jquery.min.js" id="/localsite/js/jquery.min.js"></script>
 <script type="text/javascript" src="js/d3/d3.v5.min.js"></script>
-<script type="text/javascript" src="js/common/showdown.min.js"></script>
-<script type="text/javascript" src="../localsite/js/localsite.js?sidecolumn=community/nav.html"></script>
+<script type="text/javascript" src="../../localsite/js/showdown.min.js" id="/localsite/js/showdown.min.js"></script>
+<script type="text/javascript" src="../localsite/js/localsite.js?navcolumnX=community/nav.html"></script>
 <script type="text/javascript" src="../localsite/js/navigation.js"></script>
-<link type="text/css" href="../../localsite/css/base.css" rel="stylesheet" />
+<link type="text/css" href="../../localsite/css/base.css" rel="stylesheet" id="/localsite/css/base.css" />
 
 <!--
-<link rel="stylesheet" id="ivan-fonts-css" href="https://fonts.googleapis.com/css?family=Montserrat%3A400%2C700%7CRaleway%3A300%2C400%2C700&amp;subset=latin" type="text/css" media="all">
+
+
+Code for America and the US Environmental Protection Agency (EPA) are awarding high school educators and their students who help create inspiring tools during the annual Sustainable Communities Web Challenge. We encourage you to also invite programmers, community reps and designers. $10,000 in prizes will be awarded to participants on Oct 2nd.
+
+Educators and their high school students are invited to join us virtually to create a community page that visualizes your community's path to a sustainable, net zero future. A community can be your neighborhood, town, city, county, region or state. You'll use data and widgets from the US EPA and other sources to share your vision for a sustainable community.
+
+
+     Work includes biomass waste to energy, the transition to electric vehicle manufacturing, environmental impact indicators, advanced biofuels and reducing greenhouse gas emissions.
+
+Economic data, community resources and planning input combined with the EPA's new environmental indicator models.
 -->
 
 <!-- For Facebook -->
@@ -22,12 +33,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:image" content="https://model.earth/community/img/overview/code-for-america-rect.jpg" />
 <meta property="og:url" content="https://model.earth/community/" />
-<meta property="og:description" content="Economic data, community resources and planning input combined with the EPA's new environmental indicator models." />
+<meta property="og:description" content="Join us in building Lifecycle Tools for companies and communities focused on regional environmental issues and innovations." />
 
 <!-- For Twitter -->
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="2021 Sustainable Communities Web Challenge - Code for America" />
-<meta name="twitter:description" content="Economic data, community resources and planning input combined with the EPA's new environmental indicator models." />
+<meta name="twitter:description" content="Join us in building Lifecycle Tools for companies and communities focused on regional environmental issues and innovations." />
 <meta name="twitter:image" content="https://model.earth/community/img/overview/code-for-america-rect.jpg" />
 
 </head>
@@ -38,9 +49,8 @@
 -->
 <body>
 <script>
-  loadMarkdown("README.md", "readmeDiv", "_parent");
-  consoleLog("test")
-  // param.startTitle = "Model Earth"; // Trigger header
+  //loadMarkdown("README.md", "readmeDiv", "_parent");
+  //// param.startTitle = "Model Earth"; // Trigger header
 </script>
 
 <style>
@@ -95,45 +105,287 @@
         display:none;
     }
 }
+#logosRight {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
+#logoRow {
+  border-top: 1px solid #ccc;
+}
+#logoRow a {
+  margin-right: 60px;
+  display:block;
+  float: left;
+}
+.popout {
+    border: 1px solid #ccc;
+    padding: 30px;
+    width:100%;
+    background:#eee;
+}
+.popout > h3 {
+    margin-top:0px;
+}
+@media (max-width: 1200px) {
+    .hideMobile1200 {
+        display: none;
+    }
+}
+@media (max-width: 600px) {
+    .narrowGrey {
+        background-color: #ddd;
+    }
+    .topcolumns > .pageColumn {
+      padding-left:30px;
+      padding-right:30px;
+    }
+    .content {
+      padding: 0px;
+    }
+    .contentpadding {
+      padding: 0px;
+    }
+}
+
+/* Add to widget.css */
+thead th:nth-child(2) {
+  width: 300px !important;
+  min-width: 300px !important;
+  max-width: 300px !important;
+}
+tbody tr td:nth-child(2) {
+  width: 300px !important;
+  min-width: 300px !important;
+  max-width: 300px !important;
+  overflow: hidden;
+}
+.jss1 > div {
+  max-width: 350px;
+}
 </style>
 <div id="log_display" style="display:none"></div><!-- a work in progress -->
 
-<div style="background-color: #dae8eb; text-align: center; overflow: auto; padding:0px; border:0px">
-    <div style="max-width:1400px; max-height:300px">
-        <div style="display: inline-block;">
-        <a href="https://codeforamerica.org"><img src="img/logo/code-for-america-and-earth.png" style="float:left; max-height:120px; margin:50px 100px 20px 0"></a>
-        <a href="challenge/"><img src="img/overview/banner-2.png" class="hideMobile" style="float:left; max-height:300px;"></a>
+
+<div class="georgia-hideX" style="position:relative; background:#aaa"><!-- #dae8eb -->
+
+    <!-- psd resides in smartdata -->
+    <div style="background-color: #dae8eb; margin: 0 auto; overflow: auto; padding:0px; border:0px">
+
+        <div style="max-width:1230px; padding-left:40px; padding-right:40px; text-align:left; position:relative; min-height:380px; margin: 0 auto">
+
+            <img src="img/overview/banner-2.png" class="hideMobile" style="opacity:0.3; width:100%; max-width:600px; padding-top:20px; padding-right:20px; position:absolute; right:20px; bottom:0px">
+
+
+            <div>
+              <div class="hideMobile" style="float:left">
+                  <div class="hero-text" style="padding:30px 45px 6px 0; text-align: right;">
+
+                      <img src="img/logo/epa-circle.png" class="hideMobile" style="width:100%;max-width:145px; margin-bottom:15px">                     
+
+                  </div>
+
+              </div>
+
+              <div style="font-size:20px; line-height: 1.2em; float:left">
+                      
+                      <img src="img/logo/code-for-america-and-earth.png" style="width:100%;max-width:280px;padding:40px 0 0 0"><br><br>
+                      
+              </div>
+            </div>
+
+
+            <div style="font-size:15px;line-height: 20px; clear:both">
+
+              <!--
+              <div style="font-size:24px; line-height: 1.2em; font-weight:600">
+                Websites for Sustainable Communities
+              </div><br>
+              -->
+
+              <!--
+              Second annual web challenge<br>
+              <div style="font-size:20px; line-height: 1.2em;">Fall 2022 &ndash; 10AM&nbsp;to&nbsp;6PM&nbsp;ET</div>
+              <br>
+              -->
+
+              <div style="padding-bottom:20px; font-size: 18px; line-height: 28px;">
+                Join us in building Lifecycle Tools that reduce<br>
+                environmental impacts using local innovations.<br>
+                <a href="projects/">Current Projects</a> and <a href="/localsite/info/">Data Visualizations</a><br><br>
+
+                Get started: <a href="../localsite/start/">Fork Repos</a> and join in <a href="../io/coders">Upcoming Coding Meetups</a><!--for today's <a href="https://www.democracylab.org/projects/834" target="Tech-a-thon">Better Tech-a-thon</a>-->
+              </div>
+
+            </div>
+
+            <div id="logosRight">
+              
+            </div>
         </div>
     </div>
 </div>
 
-<style>
-  #sidecolumnContent {
-    position: static !important;
-    float:left;
-  }
-  #sidecolumnContentScroll {
-    position: relative;
-    bottom:auto !important;
-    right:0 !important;
-  }
-</style>
-<div id="sidecolumn"></div>
+<div style="clear:both"></div>
 
-<div id="rightcolumn" style="float:right; max-width: 400px;">
-    <a class="twitter-timeline" data-tweet-limit="2" href="https://twitter.com/EPA"></a> 
-    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-</div>
 
-<div class="content contentpadding litePanel" style="overflow:auto;">
 
-    
-      
-    <div style="clear:both; overflow: auto;">
-      <div id="readmeDiv"></div>
+<div style="clear:both; background-color:#fff; min-height:250px">
+
+  <div class="topcolumns content contentpadding" style="padding-top:30px; padding-bottom:0px; max-width: 1230px">
+
+
+    <div class="pageColumn">
+      <div class="pageColumnInside">
+
+      <h2>Environmental Impacts</h2>
+
+      Choose your location to see which industries are active in your community, which create the most jobs and which have the biggest environmental impacts.<br><br>
+
+      <a href="../apps/" class="btn btn-white">Explore Impacts</a>
+      <!--
+      <a href="../../community/challenge/">Join our Newsletter</a>
+      -->
+
+      <br><br>
+      </div>
     </div>
 
-    <div class="local" style="float:left; padding-top:0px; clear:both; display:none">
+    <div class="pageColumn narrowGrey">
+      <div class="pageColumnInside">
+
+      <h2>Integration Opportunities</h2>
+      Code for America and the US EPA are collaborating with programmers, community reps and designers to create inspiring tools. Get involved adding APIs and updating widgets.<br><br>
+
+      <a href="projects/" class="btn btn-white">View Project Areas</a>
+
+      </div>
+    </div>
+
+    <div class="pageColumn">
+      <div class="pageColumnInside">
+        <h2>Product Lifecycle Tools</h2>
+
+        We've teamed up with sustainablity experts, community reps, coders and designers around the world to integrate systems in location-focused community impact pages.<br><br>
+
+        <a href="https://Lifecycle.tools" target="_parent" class="btn btn-white">Lifecycle Tools</a>
+
+      </div>
+    </div>
+
+    <div style="clear:both"></div>
+    <br><br>
+
+  </div>
+
+</div>
+
+
+<div id="readmeDiv"></div>
+
+<div id="logoRow">
+  <div class="content contentpadding" target="_blank" style="padding-top:40px; padding-bottom:30px; max-width: 1230px">
+    <a href="https://www.democracylab.org/projects/834" target="_blank"><img src="../localsite/img/logo/partners/democracy-lab.png"></a>
+    <!-- Reduce this logo: -->
+    <a href="https://model.georgia.org" target="_blank" style="margin-top:-4px"><img src="img/logo/georgia_usa_gray.png" style="width:140px;"></a>
+    <a href="https://www.codeforatlanta.org" target="_blank" style="margin-top:-4px"><img src="../localsite/img/logo/partners/code-for-atlanta.png" style="width:145px;"></a>
+    <a href="https://openseattle.org" target="_blank" style="margin-top:-10px"><img src="../localsite/img/logo/partners/open-seattle.png" style="width:140px;"></a>
+
+    <!--
+    <a href="https://data.world" target="_blank" style="margin-top:-10px"><img src="../localsite/img/logo/partners/dataworld.png" style="width:140px;"></a>
+    -->
+    <!-- https://data.world/neighborhood 
+    -->
+
+    
+    <div style="clear:both"></div>
+  </div>
+</div>
+
+<!--
+<a href="../localsite/info/"><img src="img/overview/slides/perfect-storm-heatmap.jpg" class="hideMobile" style="float:left; width: 100%; margin-top:0px; margin-bottom:20px"></a><br>
+-->
+
+    
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../io/build/widgets.css">
+
+    <style>
+    .MuiGrid-root .MuiGrid-container, .MuiTabs-root, .matrix-title {
+      display: none !important;
+    }
+    table {
+      border-spacing: 2px !important;
+    }
+    table a {
+      color: #fff;
+    }
+    table input {
+      display: none;
+    }
+    .noborder {
+      border-left: 0px;
+    }
+    .sector-list-body a {
+      font-size: 14px !important;
+    }
+    .jss7, .jss9 {
+      margin-left: 6px;
+    }
+    </style>
+
+    <div style="background-color: #a0a0a0; color:#fff">
+    <div class="hideMobile">
+      <div class="content contentpadding" style="max-width: 1430px;">
+        <div class="ioXX">
+            <div style="marginXX: 0 auto;">
+                <div>
+                  <h1 style="color:#fff">Impacts of Goods & Services</h1>
+                  Click a column header to sort by impact. &nbsp;<a href="../localsite/info/#mapview=country" style="color:#fff; text-decoration:underline">View by state and county</a>
+                </div>
+                <div class="matrix-title">Goods & Services</div>
+                <div class="sector-list">
+                </div>
+            </div>
+
+            <div style="float:right"><a href="../io/charts" style="color:#fff">Embed Charts</a></div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <script src="../io/build/lib/useeio_widgets.js"></script>
+    <script>
+
+        var config = useeio.urlConfig();
+        var modelID = config.get().model || 'USEEIOv2.0';
+
+        var model = useeio.model({
+            endpoint: '../io/build/api',
+
+            model: modelID,
+            asJsonFiles: true,
+        });
+
+        var sectorList = useeio.sectorList({
+            model: model,
+            selector: '.sector-list',
+        });
+        config.withDefaults({
+            view: ["mosaic"],
+            count: 10,
+        })
+        config.join(sectorList);
+
+    </script>
+
+
+
+
+<div class="content contentpadding litePanel" style="overflow:auto; display:none">
+
+    <div class="localX" style="float:left; padding-top:0px; clear:both; display:none">
 
         <div id="greatestNeedsHolder" class="resultsHolder" style="margin-right:30px; ">
           <div style="margin-bottom:10px;padding-top:0px">
@@ -143,6 +395,9 @@
             <input type="text" class="txtbox frst_location" id="zip" placeholder="Zip Code">
             <div class="gobutton" style="float:left" onclick="goZip()">GO</div>
             <div style="clear:both"></div>
+
+            <br><br>
+            
           </div>
         </div>
         <br><br>
@@ -166,10 +421,165 @@
 
     </div>
 
-<div id="disqus_thread"></div>
+
+</div>
+
+<!--
+<link rel="stylesheet" href="css/material_icons.css" />
+-->
+
+<style>
+.floatRight {
+  max-width:400px;
+}
+#right-image {
+  width:100%;
+  max-width:400px;
+}
+@media (max-width: 600px) {
+  .pageColumnInside {
+    padding-top: 15px;
+  }
+  #hero-rect-new {
+    margin-left: 40px !important;
+  }
+}
+@media (max-width:800px) {
+  .main_column {
+    padding-left:40px;
+  }
+  .floatRight {
+    max-width:100%;
+    margin-left: 0px;
+  }
+  #right-image {
+    max-width:100%;
+  }
+  #main-info-content {
+    padding-left: 0px !important;
+    margin-left: 0px !important;
+    padding-right: 0px !important;
+  }
+}
+</style>
+<div id="main-info-content" class="content contentpadding" style="clear:both; padding-top:50px; max-width: 1230px">
+
+<div class="floatRight" style="border:1px solid #ccc; margin-bottom:20px">
+  <div>
+    <a href="challenge/" target="_parent" ><img id="right-image" src="img/overview/code-for-america-square.jpg" style=""></a>
+  </div>
+  <div style="padding:30px; padding-top:10px; padding-bottom:20px">
+
+    <div style="display:none" class="challenge">
+      Web Challenge Kickoff:<br>
+      <!--<h2 style="margin-top:0px;padding-top:0px;border:0px">Monday, Sept. 21, 2020</h2>-->
+      <h2 style="margin-top:0px;padding-top:0px;border:0px">[TBD]</h2>
+
+      Web Challenge Awards:<br>
+      <h2 style="margin-top:0px;padding-top:0px;border:0px">[TBD]<!--Sunday, Oct. 25, 2020--></h2>
+    </div>
+
+    Collaborate on projects with the US Environmental Protection Agency (EPA) in areas like international impact footprint labels, waste-to-energy, the transition to electric vehicle manufacturing, local environmental indicators and mapping, advanced biofuels, and reduced greenhouse gas emissions.
+
+    <a href="../io/coders/" target="_parent" style="white-space: nowrap;">Learn More and Get Involved</a>
+
+  </div>
+</div>
+
+<div class="main_column" style="overflow:auto; padding-right:20px">
+
+<h1>Community Apps for Life&nbsp;Cycle&nbsp;Assessment&nbsp;(LCA)</h1>
+
+<!-- copied from /io -->
+<a href="https://www.epa.gov/sciencematters/epa-researchers-working-improve-life-cycle-assessment-capabilities-communities" style="font-size:18px" target="_blank">Working to Improve Life-Cycle Assessment Capabilities for Communities</a><br>
+
+Sustainable Materials Management (SMM) is a systemic approach to using and reusing materials more productively over their entire life cycle. It represents a change in how our society thinks about the use of natural resources and environmental protection. By looking at a product's entire life cycle, we can find new opportunities to reduce environmental impacts, conserve resources, reduce costs and attract new industries.<br><br>
+
+<!--
+<p>
+The U.S. Environmental Protection Agency (EPA), Code for America, and the Georgia Center of Innovation for Energy Technology have launched the Sustainable Communities Web Challenge, which will award a total of up to $10,000 across all winning participants. The purpose of this challenge is to customize our interactive community starter pages for a community of interest. These pages integrate tools that show the relationships between industries and the environment and local economy with an eye toward informing community decisions around sustainability. Sustainable communities promote health and well-being, such as through materials reuse and recycling, and prevention of environmental releases, while also being economically robust.
+</p>
+
+<p>
+The challenge is open to anyone who is interested in creating these community pages, including students from high school through graduate school, community representatives, coders and others. An adult is required to register and oversee participation of any minors.
+</p>
+
+<p>
+To start, the challenge asks participants to choose a location of interest – ranging from a local community to multiple states. They can then join a community team or create a new team for their community and use our starter pages to start their community page. To create a competitive challenge entry they may further develop, customize, and improve our existing web tools that integrate EPA models and data, or integrate data, tools or imagery from other sources of their choosing relevant to issues in their community. Participants will compete for $10,000 in awards. The challenge will culminate in a full-day showcase event and award presentation on October 2, 2021.
+</p><br>
+-->
+
+<p>
+<a style="font-size:18px" href="../localsite/info/#mapview=counties">Explore your community's impacts</a><br>
+Companies like Amazon and General Motors are using the US Environmentally Extended Input-Output <a href="https://www.epa.gov/land-research/us-environmentally-extended-input-output-useeio-models">(USEEIO) Models</a> to analyze economic and environmental impacts across all economic sectors. The model is available for community planning, business development and environmental education through our <a href="../../localsite/info/">Local Industry Comparison Tools</a><br>
+
+</p>
+
+<p>
+<a href="../io/" style="font-size:18px">Learn more about USEEIO Community Pages</a><br>
+  Using an economy-wide input-output model of industries, households and the environment, the new online tools help communities identify opportunities for both economic growth and environmental sustainability.
+
+</p>
+<!--
+Register to participate.
+
+Learn more about the Challenge. 
+
+Virtual workshops and Slack channel Information.
+
+Learn more about USEEIO.
+-->
+
+</div>
+
+</div>
+
+<div style="clear:both"></div>
+
+
+<style>
+#hero-landscape-image {
+  background-image: url(../localsite/img/hero/stars.jpg);
+}
+#hero-rect-new {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 40px;
+  margin: 0 auto; /* We'll center instead */
+  max-width: 600px;
+  padding: 20px 50px 20px 50px;
+  overflow: auto;
+  float: left;
+}
+</style>
+
+<div style="position:relative;height:550px">
+  <div id="hero-landscape-image" class="bgimg" style="min-height:850px; background-position: 0 54px; position: absolute; left:0; right:0; opacity: 0.8; background-color:#888">
+
+      <div class="content contentpadding" style="padding-top:60px">
+        <div>
+            <div id="hero-rect-new">
+              <h3>Project Areas</h3>
+
+              <a href="../../community/projects/" style="display:block;margin-top:10px">View Project List</a>
+
+              <a href="../../apps/">Starter Pages</a> - Copy and add parameters<br>
+              <a href="../../community/projects/#label">JQuery/React</a> - Environmental Profile Editor<br>
+              <a href="../../community/projects/#io">React/D3</a> - Inflow-Outflow and Sankey Charts<br>
+              <a href="../../community/projects/#github-actions">Python/R</a> - GitHub Actions Data Pipeline<br>
+              <a href="../../community/projects/#python">Python</a> - Machine Learning<br>
+              <a href="../../community/projects/#ux">UX/UI</a> - Nutrition Labels / Scenario Reporting<br>
+              <a href="../../community/projects/#maps">Maps</a> - Data Visualizations<br>
+              <a href="../../community/projects/#cinematic">Cinematic</a> - Environmental Impact Apps<br>
+              <a href="../../apps/smm/">3.0 Mockup</a> - Lifecycle Tools<br>
+
+              
+            </div>
+          </div>
+      </div>
+
+  </div>
 </div>
 
 
-<link rel="stylesheet" href="css/material_icons.css" />
 </body>
 </html>

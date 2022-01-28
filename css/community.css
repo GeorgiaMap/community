@@ -515,40 +515,6 @@ iframe {
   text-decoration: none;
 }
 
-/* json to html display */
-.titlecell {
-  border-top: 1px solid #ddd;
-  margin-top:5px;
-  float:left;
-  clear:both;
-  min-width: 200px;
-}
-.rightcell {
-  border-top: 1px solid #ddd;
-  margin-top:5px;
-  overflow: auto;
-}
-.rightlogo {
-  width:100%;
-  max-width:300px;
-  margin-top:5px;
-  margin-bottom:5px;
-}
-.hidden {
-  displayX:none;
-}
-.level1 {
-  color: #fff;
-  background: #777;
-  font-size: 11pt;
-  padding:6px;
-  margin-top:14px; /* margin-bottom breaks alignment of clear:both on titlecell div */
-  cursor: pointer;
-}
-.bucketDesc {
-  white-space: nowrap;
-}
-
 @media (max-width: 800px) {
   .headerRect {
     display:none;

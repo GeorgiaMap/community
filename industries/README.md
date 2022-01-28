@@ -1,19 +1,26 @@
 # Industries by Zip Code (ZCTA)
 
-Using the [ZIP Codes Business Patterns (ZBP) API](https://www.census.gov/data/developers/data-sets/cbp-nonemp-zbp/zbp-api.html), a new Python script can be created similar to our [BEA County API script](../../localsite/info/data/) to pre-processes zipcode level industry data while filling in gaps using state totals. Both counties and zip codes can be displayed in the [info page](../info/).  Here's an [industry map clustering sample](../../community/zip/leaflet/#columns=JobsAgriculture:50;JobsManufacturing:50).  
+We're using [Machine Learning](https://github.com/modelearth/machine-learning) to estimate payroll gaps in county data using Bureau of Labor Statistics (BLS) Quarterly Census. The same estimating process can be applied to zip code areas.
 
-Using Python, combine with [uszipcode.readthedocs.io](https://uszipcode.readthedocs.io/01-Tutorial/index.html) demographics data, or pull from another source.    
+We're also pulling [zip demographic data](../../zip/io/) into a json file for each zip code from [uszipcode.readthedocs.io](https://uszipcode.readthedocs.io/01-Tutorial/index.html).  
 
-Here's an older [prep all](../prep/all/) script with industries by zip code from spreadsheets with a random forest applied. 
+[Bureau of Labor Statistics (BLS)](https://www.bls.gov/data/) also provides annual industry data by zip code.
+
+Here's a example of [clustering zip code data for multiple parameters](../../community/zip/leaflet/#columns=JobsAgriculture:50;JobsManufacturing:50).  
+
+
+## State Centroids
 
 Script for generating state centroids from TIGER data resides in:  
-[community/info/rstudio](../info/rstudio)  
+[model.earth/community-data/us/](https://model.earth/community-data/us/) and [community/info/rstudio](../info/rstudio) (older)  
 <br>
-
 
 
 ## Older - ZIP Code Industries from BEA Spreadsheets
 
+Using the [ZIP Codes Business Patterns (ZBP) API](https://www.census.gov/data/developers/data-sets/cbp-nonemp-zbp/zbp-api.html), a new Python script can be created similar to our [BEA County API script](../../localsite/info/data/) to pre-processes zipcode level industry data while filling in gaps using state totals.
+
+Here's a [prep all](../prep/all/) script with industries by zip code from spreadsheets with a random forest applied. 
 
 
 <b>Industry Employment Levels</b><br>

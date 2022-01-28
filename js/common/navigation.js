@@ -34,7 +34,7 @@ $(document).ready(function(){
  	if (param["showheader"] != "false") {
  		if (param["showhero"] != "false") {
 	 		if(location.host.indexOf('model.georgia') >= 0) { 
-		 		$("body").prepend( "<div class='headerImage'><img src='" + climbpath + "../io/img/hero/sustainable-communities.jpg' style='width:100%'></div>");
+		 		//$("body").prepend( "<div class='headerImage'><img src='" + climbpath + "../io/img/hero/sustainable-communities.jpg' style='width:100%'></div>");
 		 	}
 		 }
 	 	$("body").wrapInner( "<div id='fullcolumn'></div>"); // Creates space for sidecolumn
@@ -78,8 +78,8 @@ $(document).ready(function(){
 		 		$('.georgia').css('display', 'inline');
 		 	} else if(1==2 && location.host.indexOf('neighborhood') >= 0) {
 		 		// Something here causes distorted logo live on neighborhood
-		 		$(".siteTitleShort").text("Model Building");
-		 		$('#logoholder').html("<a href='/'><img style='height: 25px;margin: 30px 10px 4px 10px;' src='" + climbpath + "../localsite/img/logo/favicon.png' style='width:140px;padding-top:4px'></a>");
+		 		$(".siteTitleShort").text("Neighborhood");
+		 		$('#logoholder').html("<a href='/'><img style='height: 25px;margin: 30px 10px 4px 10px;' src='" + climbpath + "../localsite/img/logo/partners/neighborhood-icon.png' style='width:140px;padding-top:4px'></a>");
 		 		$('.headerbar').css('height', '80px');
 		 		$('.headerOffsetOne').css('height', '80px');
 		 		$('.headerbarheight').css('height', '80px');
@@ -87,8 +87,8 @@ $(document).ready(function(){
 		 		$('.neighborhood').css('display', 'block');
 		 	} else {
 		 		$(".siteTitleShort").text("Model Earth");
-		 		imageUrl = climbpath + "../community/img/logo/favicon.png"; // model earth
-		 		imageUrlSide = climbpath + "../community/img/logo/favicon.png";
+		 		imageUrl = climbpath + "../community/img/logo/model-earth.png"; // model earth
+		 		imageUrlSide = climbpath + "../community/img/logo/model-earth.png";
 		 		$('#logoholderside').css('width', '24px');
 		 		$('#logoholderside').css('height', '24px');
 	 			//$('#logospace').css('margin-top','2px');
@@ -136,7 +136,7 @@ $(document).ready(function(){
 	 		$('#logoholder').css('background-position', 'center');
 
 	 		$('#state_select').on('change', function() {
-			    window.location = "/localsite/info/?state=" + this.value + "#show=mockup";
+			    window.location = "/localsite/info/#state=" + this.value; // + "&show=mockup"
 			});
 	 		$('.showMenu').click(function () {
 				//$(".showMenu").hide();
@@ -286,7 +286,6 @@ $(document).ready(function(){
 			// Get the id of the last item fetched from scrollItems
 			cur = cur[cur.length-1];
 			var id = cur && cur.length ? cur[0].id : "";
-			//console.log('currentSideID id: ' + id);
 			return id;
 		}
 		var lastID;
