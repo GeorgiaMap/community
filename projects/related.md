@@ -16,6 +16,7 @@
 
 1. [RStudio and USEEIOR](../io/naics) - Use LCA methodology to evaluate new technologies [including advanced biofuels](../../community/biotech/).  Add updates for electric vehicles  and bioproducts, Local economy inputs and new technology additions to USEEIO. [Details](../io/naics/)  
 
+1. The Mission: Ending Poverty, Sustainable Energy, Making Humanity a Multiplanetary Species, and the Preservation of Consciousness.
 
 
 ## Integrations
@@ -68,6 +69,15 @@ Our [DemLab Project API Pull test](../../io/template/feed/demolab.html) and the 
 <a href="https://docs.google.com/document/d/1uqPZ_9hPP7q3_Pc2JugjQKTB94ePRG0vwshqfyqm4R0/">Scope of Work</a>. UX/UI
 and <a href="https://www.ewg.org/">EWG</a>
 -->
+
+<h4>Citizens Foundation</h4>
+
+Connecting governments & citizens through constructive ideas and debate that minimizes personal arguments and trolling.
+
+[Your Priorities](https://www.yrpri.org/)  
+[The Gov Lab - NYU](https://thegovlab.org/)  
+[Horiozn Europe](https://ec.europa.eu/info/research-and-innovation/funding/funding-opportunities/funding-programmes-and-open-calls/horizon-europe_en)  
+[Citizen Lab](https://www.citizenlab.co/)  
 
 <h4>Emissions Dashboard</h4>
 
