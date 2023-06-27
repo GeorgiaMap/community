@@ -1,6 +1,6 @@
-#Sustainable Communities Challenge Winners
+# Community Web Challenge Winners
 
-**Best in Show:** Loyola Chicago - Composting and Biodiesel -  Konstantin, Federico and Shriya
+**Best in Show:** Loyola University Chicago - Composting and Biodiesel -  Konstantin, Federico and Shriya
 **Best Technical Tool:** Environmental Impact Labels, Abrie, Code for Atlanta
 **Most Community Love:** Code for Hawai'i,  - Jess, Joel, Ben, Chris, Heather
 **Most Activating:** Get Involved, Ryan in Los Angeles
@@ -9,7 +9,7 @@
 
 Chicago - [Sustainablity at School](/apps/school) - [Composting](/apps/composting) - [Biodiesel](/apps/biodiesel)
 New York - [Impact Profiles - Community Footprints](/apps/impact)
-Hawaii - [A Sustainable Future - Āina (land, that which feeds)](https://www.codeforhawaii.org/apps/base/)
+Hawaii - [A Sustainable Future - Āina (land, that which feeds)](https://codewithaloha.org)
 Los Angeles - [Get Involved - Connect with your Community](/apps/get-involved)
 Atlanta - [Clean Power from Dirty Diapers](/apps/cleanpower)
 Colorado - [Parks and Recreation - Nature's Lifecycle](/apps/land)
