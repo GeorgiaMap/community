@@ -1,27 +1,39 @@
 # Starter Samples
 
-Stand-alone examples of formatting and displaying community data.<div class="showGit">
-<a href="https://model.earth/community/start/">View as website</a>
-</div><span style="font-size:18px">&bullet; <a href="../../apps/">Website starter samples</a>  
-&bullet;  [Copy the apps base folder](../../apps/base/)  
-&bullet; <a href="../../localsite/#parameters">Edit your page parameters</a>  
+<div class="showGit">
+<a href="https://model.earth/community/start/">View current GitHub page as a web page</a>
+</div>
+
+## [<span class="num">1</span><span class="txt">Start a local website</span>](../../localsite/start)
+Examples for displaying your datascapes.
+
+&bullet; <a href="../../localsite/start/">Page Starter</a>
+&bullet; <a href="../../apps/">Location Modeling</a><!--
+&bullet;  [Copy the apps base folder](../../apps/base/)  -->
+&bullet; <a href="../../localsite/#parameters">Localsite Parameters</a>  
 <!--
 &bullet; <a href="../challenge/">Sustainable Communities Web Challenge</a><br>
 &bullet; <a href="../challenge/how/">How to Create a Local Site Page</a><br>
--->
-</span>  
+--> 
 
+## [<span class="num">2</span><span class="txt">Display datasets</span>](../../localsite/info/data)
+Model.Earth Data Pipeline
 
-## [1. Start a local website](../../localsite/start)  
-## [2. Display Datasets](../../localsite/info/data)
-## [3. Input-Output Widgets](../../io/charts)  
-## [4. Chart Starter Ideas - Sankey](charts)  
-## [5. Map Samples](maps)  
-## [6. USEEIO API](https://github.com/usepa/useeio_api/) - [Python and R](../resources/useeio) 
+## [<span class="num">3</span><span class="txt">Input-output widgets</span>](../../io/charts)
+US Environmental Protection Agency (EPA)
 
-<br>
+## [<span class="num">4</span><span class="txt">Chart starter ideas</span>](charts)
+Chord, Sankey, USEEIO Heatmap Mosaic and Input-Output Flow
 
-## Resources
+## [<span class="num">5</span><span class="txt">Map samples</span>](maps)
+Leaflet Map Layers
+
+## [<span class="num">6</span><span class="txt">Modeling framework (USEEIO)</span>](https://github.com/usepa/useeio_api/)
+[Python and R](../resources/useeio) 
+
+<br><br>
+
+# Resources
 
 [Using GitHub as a Data Lake](https://dzone.com/articles/using-github-as-a-data-lake)  
 [Content Management Systems for JAMstack Sites](https://headlesscms.org/)  
