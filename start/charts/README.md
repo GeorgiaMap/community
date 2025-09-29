@@ -1,43 +1,82 @@
+[Starters](../)
+
 # Chart Starters
 
-We recommend [Apache eCharts](https://echarts.apache.org/examples/) - for Sankey, [Chord](https://youtu.be/UdKoggg7E3g?t=99), 3D Globes and a lot more.
+We're setting up [timeline charts for UN Goal progress tracking](/localsite/timeline/)
 
-[The embeddable USEEIO widgets](../../../io/charts/) provide mosaic heatmap and bar charts and use [D3.js](https://github.com/d3/d3/wiki/Gallery).  
-The [Environmental Impact Bubble Chart](../../../io/charts/bubble/) uses JSON files generated from the USEEIO API.  
+[The embeddable USEEIO widgets](../../../io/charts/) provide mosaic heatmap and bar charts.
 
-### Chord Charts
+[Our Impact Bubble Chart](../../../io/charts/bubble/) uses JSON from the USEEIO API.  
 
-[Chord Chart examples](https://www.streetlightdata.com/chord-diagrams-visualization-data/)
+React Project: Display [Total Dollar Values](../../../localsite/info/data/totals/) from [The IO Matrix](../../../io/about/matrix/).
 
-The following are built with <a href="https://d3js.org/">D3.js</a>, but the Apache eCharts may be easier
-<a href="https://bost.ocks.org/mike/uberdata/">Uber Sample</a> / <a href="http://www.visualcinnamon.com/2015/08/stretched-chord.html">Stretched Cord</a> - <a href="http://bl.ocks.org/nbremer/f9dacd23eece9d23669c">Demo (Education)</a> / <a href="https://github.com/sghall/react-d3-transitions">React D3 Transitions</a> now [Resonance](https://github.com/sghall/resonance)<br><br>
+We recommend [ChartJS.org](https://chartjs.org), [Observable D3](https://observablehq.com/@d3/gallery), and [Apache eCharts](https://echarts.apache.org/examples/) for [Sankey](../../../io/charts/sankey/), [Chord](/io/charts/chord/) and [trade flow](../../../profile/trade/).
 
+<!--
+Where does this reside now?
+[Government Carbon Footprints Sankey](https://federalist-c3fa68f6-ee2f-4053-9a71-252d9abebb5f.app.cloud.gov/site/18f/federal-carbon-footprint/)
+-->
+
+### Exploring Impacts
+
+[Model.Earth Industry Comparisons](/localsite/info)  
+[Amazon - Water Positive by 2030](https://www.aboutamazon.com/news/aws/aws-water-positive-by-2030) and [Footprint Report](https://sustainability.aboutamazon.com)
+
+### Deep Learning Model Frameworks
+
+[Model.Earth RealityStream](/realitystream/)
+[PyTorch](https://pytorch.org/docs/stable/index.html) for K-Means clustering projects
+[Tensorflow ML in Javascript](https://www.tensorflow.org/js/demos) with Google's international [REST API data](https://docs.datacommons.org/api/rest/v2)
+<!--
+Optional Data from CensusReporter.org
+https://www.censusreporter.org/data/map/?table=B06011&geo_ids=040|01000US
+-->
+
+### Network Graphs
+
+We connect with [3D Force-Directed Graphs](https://github.com/vasturiano/3d-force-graph)
+
+Interactive network graphs for 24 impact areas and the top industries related to each.  The 6 impact sets can determine the colors:
+
+Air Yellow, Water Blue, Land Green, Energy Red, Health Orange, Prosperity Purple
+
+12 industry hubs and 72 nodes (NAICS levels 2 and 4)
+
+To use:
+[3D Force Graph Click Node](https://vasturiano.github.io/3d-force-graph/example/click-to-focus/) - [Directional curved arrows](https://vasturiano.github.io/3d-force-graph/example/directional-links-arrows/) - [Self links](https://vasturiano.github.io/3d-force-graph/example/curved-links/)
+[3D Force Graph settings on GitHub](https://github.com/vasturiano/3d-force-graph)
+
+[3D clusters using 3d-force-graph (Desktop App)](https://ghviniashvili.com/project/force-graphs) - [Giorgi's GitHub](https://github.com/giorgi-ghviniashvili)
+[eChart Network Graphs](https://echarts.apache.org/examples/en/index.html#chart-type-graph)
+[Title sample - RAG network](https://towardsdatascience.com/how-to-convert-any-text-into-a-graph-of-concepts-110844f22a1a)
 
 ### Sankey Charts
 
 <b>Automotive Industry input-output</b> - Sankey chart starter example using USEEIO API data from static json files:<br>
+View <a href="../../../io/charts/sankey/">Our Interactive Version</a> of the following industry Sankey Chart - Needs help!<br>
+
 <a href="../../../io/charts/sankey/"><img src="../../../io/charts/sankey/img/sankey.png" style="width:100%; bottom:0px;"></a>
 <br>
-View <a href="../../../io/charts/sankey/">Interactive Version</a><br><br>
+
+[TheShiftProject.org](https://sankey.theshiftproject.org/) - Exiobase sankey of emissions per capita for countries
+
+[Interactive Energy Example](skd3) - D3.js Sankey Diagram in our repo
+<!--[D3.js Sankey Diagram - Flow-o-matic, easy list editing](https://observablehq.com/@mbostock/flow-o-matic)  -->
+
+[Another Sankey Diagram](https://observablehq.com/@dralla666/d3-sankey-diagram) - D3.js [In our repo](d3-sankey-diagram/)  
 
 
 [4 Interactive Sankey diagrams made in Python with Plotly.js](https://medium.com/plotly/4-interactive-sankey-diagram-made-in-python-3057b9ee8616)
 
 [sankey-diagrams.com](http://www.sankey-diagrams.com/)  
 
-[D3.js Material Flow Sample](../../tools/#charts)    
-[D3.js Sankey Diagram](https://observablehq.com/@dralla666/d3-sankey-diagram) - 
-[In Repo](d3-sankey-diagram/)  
-
 [Hybrid Sankey diagrams with return flows (Nice to duplicate)](https://www.researchgate.net/figure/A-more-complex-Sankey-diagram-1-The-structure-of-the-diagram-can-be-simplified-by_fig2_317156053)
 
-[D3.js Sankey Diagram - Interactive (Energy)](skd3)  
 
-<!--[D3.js Sankey Diagram - Flow-o-matic, easy list editing](https://observablehq.com/@mbostock/flow-o-matic)  -->
-
-[e!Sankey (Also very nice, but too pricy)](https://www.ifu.com/en/e-sankey/)
+[e!Sankey](https://www.ifu.com/en/e-sankey/) - Also very nice, but too pricy
 
 [Sankey Diagram from csv file](https://stackoverflow.com/questions/20476471/getting-sankey-diagram-in-d3-from-csv-file)
+
 
 ### D3 Heatmap
 
@@ -47,11 +86,6 @@ View <a href="../../../io/charts/sankey/">Interactive Version</a><br><br>
 
 [Bubble with Regression line](../../../io/charts/bubble/)  
 
-### ThreeJS Force Graph
-
-[3D Force Graph (click-to-focus)](https://vasturiano.github.io/3d-force-graph/example/click-to-focus/) - 
-[Settings on GitHub](https://github.com/vasturiano/3d-force-graph)
-
 
 ### D3 Flow Mapper
 
@@ -59,9 +93,6 @@ View <a href="../../../io/charts/sankey/">Interactive Version</a><br><br>
 
 [MigrationFlowMapper GitHub](https://github.com/stephdan/MigrationFlowMapper-US)  
 
-[Oregon State Cartography (temporarily unavailable)](http://www.cartography.oregonstate.edu/cartography.html)  
-
-<br>
 
 ### More about D3
 

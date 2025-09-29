@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sustainable Communities - Input-Output Model</title>
-<link rel="icon" type="image/x-icon" href="../img/logo/favicon.png" />
+<title>Lifecycle Tools - Input-Output Model</title>
+<link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
 <link type="text/css" href="../../localsite/css/base.css" rel="stylesheet" id="/localsite/css/base.css" />
 
 <script type="text/javascript" src="../../localsite/js/showdown.min.js" id="/localsite/js/showdown.min.js"></script>
@@ -13,16 +13,11 @@
 
 <!-- ?sidecolumn=community/nav.html ?display=locfilters&sidecolumn=community/nav.html&material_icons=true-->
 <script type="text/javascript" src="../../localsite/js/localsite.js?showheader=true&showsearchXX=true"></script>
-<!--
-navigation.js has a conflict with reveal - not sure if this is still occuring, went ahead and added nav using params on localsite.js above
-
-BUG: Have to call - not sure if this is still occuring
--->
 
 <!-- For Facebook -->
 <meta property="og:title" content="Sustainable Communities Input-Output Modeling Tools" />
 <meta property="og:type" content="article" />
-<meta property="og:image" content="https://model.georgia.org/community/img/logo/model-earth-globe.png" />
+<meta property="og:image" content="https://model.earth/community/img/overview/model-earth-impacts.jpg" />
 <meta property="og:url" content="https://model.earth/community/tools/" />
 <meta property="og:description" content="Environmentally-extended analysis of supplier and production data across 389 industries." />
 
@@ -30,182 +25,164 @@ BUG: Have to call - not sure if this is still occuring
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Sustainable Communities Input-Output Modeling Tools" />
 <meta name="twitter:description" content="Environmentally-extended analysis of supplier and production data across 389 industries." />
-<meta name="twitter:image" content="https://model.georgia.org/community/img/logo/model-earth-globe.png" />
+<meta name="twitter:image" content="https://model.earth/community/img/overview/model-earth-impacts.jpg" />
 
-
-<!--
-  // To do: Mask Georgia Outline - from embed.js
-  // cropMap = true requires the folllowing 3:
-  // http://leaflet-extras.github.io/leaflet-providers/leaflet-providers.js"></script>
-  // /documentation/region/js/boundary-canvas.js
-  // /documentation/region/js/georgia.js
-  // stickybits
-  // Also see: https://dollarshaveclub.github.io/stickybits/
-  // But will probably look at embed.js to detect when button of section reaches bottom of map.
-  Angshuman Guin
-  Senior Research Engineer
-  Transportation Systems Engineering
-  Smart Cities
-  https://ce.gatech.edu/people/faculty/1251/overview
-  Technology-Enabled Smarter Safer Routes to School for the City of Milton, GA
-  http://smartcities.ipat.gatech.edu/sites/default/files/CityOfMilton_SmarterSaferRoutesToSchool.pdf
-
-
-  Our app will allow editors to update rows in Google sheets for COVID-19 supply lists and recycling centers. We are partnering with the US Environmental Protection Agency and Georgia Tech to develop environmentally-enable input-output models with three Georgia Smart summer interns to prepare for a virtual fall hackathon with Code For America volunteers.
--->
 <link rel="stylesheet" href="../../localsite/css/leaflet.css" />
  <!-- Resides AFTER Leaflet's CSS -->
 <script src="../../localsite/js/leaflet.js" id="/localsite/js/leaflet.js"></script>
 <script src="../js/d3/d3.v5.min.js" id="/localsite/js/d3.v5.min.js"></script>
-<!--
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
--->
 
-  <!-- https://github.com/ilyankou/Leaflet.IconMaterial -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="../../localsite/css/leaflet.icon-material.css" rel="stylesheet">
-  <script src="../../localsite/js/leaflet.icon-material.js" id="/localsite/js/leaflet.icon-material.js"></script>
+<!-- https://github.com/ilyankou/Leaflet.IconMaterial -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="../../localsite/css/leaflet.icon-material.css" rel="stylesheet">
+<script src="../../localsite/js/leaflet.icon-material.js" id="/localsite/js/leaflet.icon-material.js"></script>
 
-  <script>
-    $(document).ready(function () {
-      //showSearchFilter();
-    });
-  </script>
-  <style>
-    h2 { font-size: 18px; }
+<script>
+  $(document).ready(function () {
+    //showSearchFilter();
+  });
+</script>
+<style>
+  h2 { font-size: 18px; }
 
+  .padding-left {
+    padding-left:70px;
+  }
+  .headerLogo {
+    height:40px;
+    margin:28px 10px 4px 50px
+  }
+  .headerImage {
+    display:none;
+  }
+  #hublist-padding {
+    padding-right: 30px; /* Avoid including in map.css. Only used when fixed map resides to right of list. */
+  }
+  @media (max-width: 800px) {
     .padding-left {
-      padding-left:70px;
+      padding-left:0px;
     }
-    .headerLogo {
-      height:40px;
-      margin:28px 10px 4px 50px
-    }
-    .headerImage {
-      display:none;
-    }
-    #hublist-padding {
-      padding-right: 30px; /* Avoid including in map.css. Only used when fixed map resides to right of list. */
-    }
-    @media (max-width: 800px) {
-      .padding-left {
-        padding-left:0px;
-      }
-    }
-    .my-div-icon {
-      width: 24px !important;
-      height: 20px !important;
-      background-color: red;
-      position:relative;
-    }
-    .my-div-icon:after {
-      position: absolute;
-      /* content: " (" attr(href) ")"; */
-      content: "1";
-      color: #fff;
-      font-size: 14px;
-      font-weight: 400;
-      line-height: 20px;
-      text-align: center;
-      left: 0;
-      right: 0;
-    }
+  }
+  .my-div-icon {
+    width: 24px !important;
+    height: 20px !important;
+    background-color: red;
+    position:relative;
+  }
+  .my-div-icon:after {
+    position: absolute;
+    /* content: " (" attr(href) ")"; */
+    content: "1";
+    color: #fff;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: center;
+    left: 0;
+    right: 0;
+  }
 
-    .slides section {
-      position: relative;
-      min-height: 600px;
-      border: 1px solid white; /* prevents hidden overflow */
+  .slides section {
+    position: relative;
+    min-height: 600px;
+    border: 1px solid white; /* prevents hidden overflow */
+  }
+  @media (max-width: 1000px) {
+    .logoImg {
+      max-width: 200px;
     }
-    @media (max-width: 1000px) {
-      .logoImg {
-        max-width: 200px;
-      }
+  }
+  .slides h4 {
+      font-weight: 400;
+    }
+  @media (min-width: 1001px) {
+    .slides section {
+      padding-top: 80px;
+      min-height: 1000px;
+    }
+    .slides h1 {
+      font-size: 58px;
+    }
+    .slides h2 {
+      font-size: 38px;
+    }
+    .slides h3 {
+      font-size: 28px;
+      line-height: 40px;
     }
     .slides h4 {
-        font-weight: 400;
-      }
-    @media (min-width: 1001px) {
-      .slides section {
-        padding-top: 100px;
-        min-height: 1000px;
-      }
-      .slides h1 {
-        font-size: 58px;
-      }
-      .slides h2 {
-        font-size: 38px;
-      }
-      .slides h3 {
-        font-size: 28px;
-        line-height: 40px;
-      }
-      .slides h4 {
-        font-size: 22px;
-        font-weight: 400;
-      }
-      .slides h5 {
-        font-size: 20px;
-        font-weight: 400;
-        padding-top: 0px;
-        margin-top: 0px;
-      }
+      font-size: 22px;
+      font-weight: 400;
     }
+    .slides h5 {
+      font-size: 20px;
+      font-weight: 400;
+      padding-top: 0px;
+      margin-top: 0px;
+    }
+  }
 
-    .swiper-button-circle {
-      float: left;
-      margin-left: 10px;
-    }
-    .nav-circle {
-        content: "" !important;
-        positionXXXX: absolute !important;
-        topXXX: 50% !important;
-        leftXXX: 50% !important;
-        transformX: translate(-50%, -50%) !important;
-        width: 48px !important;
-        height: 48px !important;
-        border-radius: 50% !important;
-        background: rgb(255, 255, 255);
-        border-width: 1px !important;
-        border-style: solid !important;
-        border-color: rgb(176, 176, 176) !important;
-        border-image: initial !important;
-        box-sizing: border-box !important;
-        position: absolute !important;
-        margin: 0px !important;
-        z-indexX: -1 !important;
-        padding-top:-16px !important;
-    }
-    .nav-circle:hover {
-        background: #eee;
-    }
-    .circle-text {
-      height:50px;
-      padding:8px;
-      width:50px;
-      text-align:center;
-      pointer-events: none;
-      font-size: 54px;
-      opacity: .3;
-    }
-    .circle-text:hover {
-      opacity: .8;
-    }
+  .swiper-button-circle {
+    float: left;
+    margin-left: 10px;
+  }
+  .nav-circle {
+      content: "" !important;
+      positionXXXX: absolute !important;
+      topXXX: 50% !important;
+      leftXXX: 50% !important;
+      transformX: translate(-50%, -50%) !important;
+      width: 48px !important;
+      height: 48px !important;
+      border-radius: 50% !important;
+      background: rgb(255, 255, 255);
+      border-width: 1px !important;
+      border-style: solid !important;
+      border-color: rgb(176, 176, 176) !important;
+      border-image: initial !important;
+      box-sizing: border-box !important;
+      position: absolute !important;
+      margin: 0px !important;
+      z-indexX: -1 !important;
+      padding-top:-16px !important;
+  }
+  .nav-circle:hover {
+      background: #eee;
+  }
+  .circle-text {
+    height:50px;
+    padding:8px;
+    width:50px;
+    text-align:center;
+    pointer-events: none;
+    font-size: 54px;
+    opacity: .3;
+  }
+  .circle-text:hover {
+    opacity: .8;
+  }
+  .dark .circle-text {
+    color: #000;
+  }
 
-    .swiper-button-prev, .swiper-button-next {
-      background-image: none;
-    }
-    .swiper-button-prev {
-        left: 20px;
-    }
-    .swiper-button-next {
-        right: 30px;
-    }
+  .swiper-button-prev, .swiper-button-next {
+    background-image: none;
+  }
+  .swiper-button-prev {
+      left: 20px;
+  }
+  .swiper-button-next {
+      right: 30px;
+  }
 
-    .boxshadow {
-      -webkit-box-shadow: 5px 5px 15px -3px rgba(0,0,0,0.71); 
-      box-shadow: 5px 5px 15px -3px rgba(0,0,0,0.71);
-    }
-  </style>
+  .boxshadow {
+    -webkit-box-shadow: 5px 5px 15px -3px rgba(0,0,0,0.71); 
+    box-shadow: 5px 5px 15px -3px rgba(0,0,0,0.71);
+  }
+  .liteshade {
+    background:#dae8eb;
+  }
+</style>
 
 </head>
 <body>
@@ -240,18 +217,16 @@ BUG: Have to call - not sure if this is still occuring
 <!-- id="allsectionsX" class="slides" -->
 <div>
 
-  <!-- z-index:-1 allows search filters to overlap -->
-  <section style="margin-top:-80px; z-index:-1">
+  <!-- style z-index:-1 allows search filters to overlap -->
+  <section>
 
-    <div style="position:absolute;z-index:-1; width: 100%; top:1px; bottom:1px; opacity:.1; background:#dae8eb">
-        
+    <!--
+    <div style="position:absolute;z-index:-1; width: 100%; top:1px; bottom:1px; opacity:.1;">
             <img src="../../apps/ev/img/hero/andrew-roberts-charging.jpg" style="width:100%">
-        
     </div>
+    -->
 
     <div class="content contentpadding">
-
-      
 
       <br>
       <img class="logoImg" src="../img/logo/epa.png" style="width:180px; float:left; margin-right:40px">
@@ -261,7 +236,7 @@ BUG: Have to call - not sure if this is still occuring
         <!--
         <h3 style="font-size: 16px;"><a href="/apps/">Product Life Cycle Assessment (LCA) - Sustainability Apps for Communities</a></h3>
         -->
-        <h1 style="padding-top: 0px; margin-top: 28px; margin-bottom: 0px; font-size: 54px;">Product Lifecycle Tools</h1>
+        <h1 style="padding-top: 0px; margin-top: 28px; margin-bottom: 0px; font-size: 54px;">Lifecycle Tools Overview</h1>
         <!-- INFO&nbsp;SESSION -->
         <h4>US Environmentally Extended Input-Output (USEEIO) Model</h4>
         <br><br>
@@ -271,7 +246,7 @@ BUG: Have to call - not sure if this is still occuring
       <div style="clear: both;"></div>
       <hr style="margin-bottom:12px"><br>
 
-      <div style="float:left; max-width:520px; font-size:17px; margin-right:50px">
+      <div style="max-width:520px; font-size:17px; margin-right:50px">
         
         <b>Impact indicators include:</b><br>
         <a href="../../localsite/info/#indicators=JOBS">Job Levels</a>, <a href="../../localsite/info/#indicators=VADD">Value-Added</a>, <a href="../../localsite/info/#set=AIR&indicators=GHG,GCC,MGHG,OGHG,HRSP,OZON,SMOG,HAPS">Air&nbsp;Quality</a>, <a href="../../localsite/info/#indicators=GHG">Greenhouse Gas Emissions</a>, 
@@ -287,28 +262,27 @@ BUG: Have to call - not sure if this is still occuring
           <span style="color:#4c7fc4">✪</span> Contributions from State and Local Agencies
         </div>
 
-        <a href="/localsite/info/data/" style="font-size:15px;margin-top:10px;display:inline-block;">More Data Sources</a> | 
-        <a href="/localsite/tools/" style="font-size:15px;margin-top:10px;display:inline-block;">View Tools</a><br>
+        <a href="/community-data/" style="font-size:15px;margin-top:10px;display:inline-block;">Community Data</a> | 
+        <a href="/data-pipeline/" style="font-size:15px;margin-top:10px;display:inline-block;">Data Pipeline</a> | 
+        <a href="/localsite/tools/" style="font-size:15px;margin-top:10px;display:inline-block;">Industry Comparisons</a><br>
 
         <br>
       </div>
 
-      <div style="margin-right:10px; margin-right:30px; font-size:15px;">
+
+
+
+      <div style="margin-right:10px; margin-right:30px; display:none; font-size:15px;">
 
        
-       <b>Loren Heyns, Programmer Analyst</b><br>
-       Georgia Department of Economic Development<br>
-       Center of Innovation for Energy Technology<br><br>
+       <b>Programmer Analyst, GDEcD</b><br>
+       DreamStudio Volunteer Coordinator, Model.Earth Apps<br>
+       Georgia Center of Innovation for Energy Technology<br><br>
         
-        <b>Wesley Ingwersen, EPA Project Engineer</b><br>
+        <b>EPA Project Engineer</b><br>
         US Enviromental Protection Agency<br>
         Southeast Region #4
-
         <br><br>
-        
-        <a href="../../io/team/">More contributors</a> - <a href="../../io/communities/">Opportunities for communities</a><br>
-        <a href="/localsite/start">Fork our GitHub repos</a> to contribute additions.<br><br>
-
         Search <a href="https://buildingtransparency.org/ec3/epds">Environmental Product Declarations (EPDs)</a>
         
         
@@ -324,106 +298,26 @@ BUG: Have to call - not sure if this is still occuring
           float: left;
         }
         </style>
-        <div id="logoRow">
-          <div class="content contentpadding" target="_blank" style="padding-top:40px; padding-bottom:30px; max-width: 1230px">
-            <a href="https://www.democracylab.org/projects/834" target="_blank"><img src="../../community/img/logo/orgs/democracy-lab.png"></a>
-            <!-- Reduce this logo: -->
-            <a href="https://model.georgia.org" target="_blank" style="margin-top:-4px"><img src="../img/logo/georgia_usa_gray.png" style="width:140px;"></a>
-            <a href="https://www.codeforatlanta.org" target="_blank" style="margin-top:-4px"><img src="../../community/img/logo/orgs/code-for-atlanta.png" style="width:145px;"></a>
-            <a href="https://openseattle.org" target="_blank" style="margin-top:-10px"><img src="../../community/img/logo/orgs/open-seattle.png" style="width:140px;"></a>
-            <div style="clear:both"></div>
-          </div>
-        </div>
-
 
       </div>
 
-      <div class="local" style="display:none">
-        Local: 
-
-        <a href="https://apps.bea.gov/iTable/?reqid=150&step=2&isuri=1&categories=Io#eyJhcHBpZCI6MTUwLCJzdGVwcyI6WzEsMiwzXSwiZGF0YSI6W1siY2F0ZWdvcmllcyIsIkdkcHhJbmQiXSxbIlRhYmxlX0xpc3QiLCI2MDA5Il1dfQ==">BEA The Use of Commodities by Industries - Summary</a>
-
-        <a href="https://www.bea.gov/itable/input-output">Input-Output Section</a> could highlight IO by using our UX. Possible future <a href="https://apps.bea.gov/iTable/?ReqID=58">ReqID Link</a>
-      </div>
-
-    </div>
-  </section>
-
-
-<!-- #dae8eb -->
-        <!-- psd resides in smartdata -->
-
-  <!--
-  <section class="mockup" style="display:none">
-    <div style="position:absolute;z-index:-1; width: 100%; top:1px; bottom:1px; opacity:.2; background:#dae8eb">
-        <div style="position:absolute; bottom:0px; right:0px; width:65%; background-color: #dae8eb; text-align: center; overflow: auto; padding:0px; border:0px">
-                
-                <img src="../img/overview/banner-2.png" class="hideMobile" style="width:100%">
-            
-        </div>
-    </div>
-
-    <div class="content contentpadding">
-      <img src="../img/logo/code-for-america-and-earth.png" style="width:300px;"><br><br><br>
-
-      <h2>BEYOND CARBON</h2>
-      <h1>SUSTAINABLE COMMUNITIES<br>WEB CHALLENGE 2021</h1>
-      <h3>Our virtual Federal Challenge event culminates on Saturday, Oct&nbsp;2, 2021 with  community reps, web developers, designers, students and data scientists working together to expand open-source tools for $10,000+ in prizes.</h3>
-      <br>
-
-      <a href="../../community/challenge/">Challenge Details</a>
-    </div>
-  </section>
-
-
-  <section class="mockup" style="display:none">
-    <div class="content contentpadding">
-
-      
-      <h1>WELCOME!</h1>
-      <h3>
-        <ul>
-        <li>Tell us your name and background</li>
-        <li>How you heard about event</li>
-        <li>Your city and state/province</li>
-        <li>Any specific topics of interest</li>
-        </ul>
-      </h3>
-
-
-      
-
-      <div style="display:block; width:100%">
-        <br><br><br>
-        <img src="../img/logo/epa.png" style="width:120px; float:left; margin-right:55px; margin-bottom:30px">
-        <img src="../img/logo/georgia.png" style="width:145px; float:left; margin-top: -4px; margin-left:3px; margin-right:50px; margin-bottom:30px">
-        <img src="../img/logo/code-for-america-and-earth.png" style="width:250px; float:left; margin-left:3px; margin-right:60px">
-      </div>
-      
-
-    </div>
-  </section>
-  -->
-
-
-<!--
-      <h1>CHALLENGE PARTNERS</h1>
-      <h3>
-        <ul>
-        <li>US Enviromental Protection Agency<br>Southeast Region #4 (ORD/R4)</li>
-        <li>Georgia Center of Innovation for Energy Technology</li>
-        <li>Code for America - Code for Atlanta and other city affiliates</li>
-        <li>General Dynamics Information Technology (GDIT)</li>
-        </ul>
-      </h3>
+      <!--
+      <a href="https://apps.bea.gov/iTable/?reqid=150&step=2&isuri=1&categories=Io#eyJhcHBpZCI6MTUwLCJzdGVwcyI6WzEsMiwzXSwiZGF0YSI6W1siY2F0ZWdvcmllcyIsIkdkcHhJbmQiXSxbIlRhYmxlX0xpc3QiLCI2MDA5Il1dfQ==">BEA The Use of Commodities by Industries - Summary</a>
       -->
+      <a href="https://www.bea.gov/itable/input-output">BEA Input-Output Data</a> <!--and <a href="https://apps.bea.gov/iTable/?ReqID=58">ReqID Link</a>-->
 
-  <section style="background:#dae8eb">
+      <a href="http://model.earth/webroot/">Fork our webroot</a> to contribute additions.  <a href="../../io/communities/">Inflow-Outflow Models</a><br>
+
+    </div>
+  </section>
+
+  <!-- Note: avoid putting background on the section because it extends behind the prior. -->
+  <section>
+    <div class="lite liteshade">
     <div class="content contentpadding">
 
       <h1 style="margin-bottom:0px">ABOUT THE MODEL</h1>
       <h4>US Environmentally Extended Input-Output (USEEIO) Model</h4>
-      
       <br>
 
       <h3 style="margin:0px">
@@ -446,17 +340,18 @@ BUG: Have to call - not sure if this is still occuring
       -->
       <a href="../../io/charts/">Embeddable Widgets</a>
     </div>
+    </div>
   </section>
 
 
   <section>
     <div class="content contentpadding" style="max-width:1200px">
-      <h1>OBJECTIVES</h1>
-      <h3>To develop, customize and improve community-focused web resources that integrate USEEIO widgets with other data sources to inform community sustainability practices and innovative new development.</h3>
+      <h1>OBJECTIVE</h1>
+      <h3>To develop, customize and improve community-focused web resources that integrate USEEIO widgets with other data sources to inform sustainability practices and innovative new development.</h3>
       <br>
 
       <div style="margin-left: -10px; background-color:#fff;margin-bottom:10px;text-align:center">
-        <a href="../../apps/coastal/"><img src="../img/overview/inflow-outflow.png" style="width:100%; max-width:1200px"></a>
+        <a href="../../localsite/info/"><img src="../img/overview/inflow-outflow.png" style="width:100%; max-width:1200px"></a>
       </div>
     </div>
   </section>
@@ -465,17 +360,23 @@ BUG: Have to call - not sure if this is still occuring
 <section>
   <div class="content contentpadding" style="max-width:1200px">
     <h1>DETAILS</h1>
-    <h3>Tools for Industrial Ecology Modeling (TIEM) using the EPA's API data.</h3>
+    <h3>Tools for Industrial Ecology Modeling (TIEM) using the EPA's API data.<br>
+    DreamStudio's Model.earth Web tools are on the right - pulling data from USEEIO API .json files.</h3>
     <br>
 
     <div style="margin-left: -10px; background-color:#fff;margin-bottom:10px;text-align:center">
-      <a href="img/tiem.jpg"><img src="img/tiem.jpg" style="width:100%; max-width:1200px"></a>
+      <a href="img/tiem.png"><img src="img/tiem.png" style="width:100%; max-width:1200px"></a>
+    </div>
+    <div>
+      <a href="img/tiem.pptx">Download Powerpoint Slide</a> | <a href="/data-pipeline/">Our Data Pipeline</a> 
     </div>
     <br>
   </div>
 </section>
 
-<section style="background:#dae8eb">
+<section>
+
+    <div class="lite liteshade">
     <div class="content contentpadding">
 
       <h2>Lifecycle Tool Contributors</h2>
@@ -490,13 +391,15 @@ BUG: Have to call - not sure if this is still occuring
           <li>Programmers (Professionals, Volunteers, Students)</li>
           <li>Designers (UX/UI Experts, Students K-12 and College Level)</li>
           <li>Data Collectors (Google Sheets and CSV Files)</li>
-          <li>Data Scientists (Machine Learning and AI)</li>
+          <li>Data Scientists (Machine Learning, LLMs and Generative AI)</li>
         </ul>
       </h3>
 
       <a href="../../io/coders/">For Coders & Designers</a>
 
     </div>
+    </div>
+    
   </section>
 
 
@@ -530,8 +433,10 @@ BUG: Have to call - not sure if this is still occuring
   </section>
 
 
-  <section style="background:#dae8eb">
+  <section class="lite liteshade">
     <div class="content contentpadding">
+
+      <img src="../../community/img/logo/github.png" style="float:right;width:100%; max-width:200px">
 
       <h2 style="padding-top:12px">Environmental Data for Teaching</h2>
       <h1 style="margin-bottom:10px">EDUCATORS</h1>
@@ -547,7 +452,7 @@ BUG: Have to call - not sure if this is still occuring
 
       <a href="../../io/learn/">For Educators</a> - <a href="../../localsite/start/">Start a free website</a><br><br>
 
-      <img src="../../community/img/logo/github.png" style="width:100%; max-width:200px">
+      
 
     </div>
   </section>
@@ -571,31 +476,34 @@ BUG: Have to call - not sure if this is still occuring
         </ul>
 
       </h3>
-      <a href="../../io/about/">About the Model</a>
+
+      <div style="font-size: 18px;">
+        <a href="../about/">About Our Projects</a> | 
+        <a href="../../io/about/">About the USEEIO Model</a>
+      </div>
+      
+      <div style="clear:both"></div>
 
     </div>
   </section>
 
 
-   <section style="height: 800px !important; min-height: 800px !important; max-height: 800px !important;">
+   <section style="height: 800px !important; min-height: 800px !important; max-height: 800px !important;" class="lite">
 
-    <div style="position:absolute; z-index:-1; width: 100%; top:1px; bottom:1px; opacity:.2; background:#dae8eb"><!-- #dae8eb -->
-        <!-- psd resides in smartdata -->
-        <div style="position:absolute; bottom:0px; right:0px; width:65%; background-color: #dae8eb; text-align: center; overflow: auto; padding:0px; border:0px">
-                <img src="../img/overview/banner-2.png" class="hideMobile" style="width:100%">
-        </div>
+    <div class="lite liteshade" style="position:absolute; z-index:-1; width: 100%; top:1px; bottom:1px; opacity:.2;"><!-- #dae8eb -->
     </div>
 
     <div class="content contentpadding">
 
       <br><br>
+      <h1>Get Involved!</h1>
       <h2>Contribute to Lifecycle Tools</h2>
       
       <h3 style="margin:0px; font-size:36px; line-height:1.8em">
         <ul style="margin:0px">
-          <li>Integrate new APIs and update widgets</li>
+          <li>Integrate APIs and update embeddable components</li>
           <li>Customize a page for a location or impact topic</li>
-          <li>Point a domain at your free GitHub Pages</li>
+          <li>Point a domain at your free GitHub Pages site</li>
           <li>Add new front-end functionality</li>
         </ul>
 
@@ -603,8 +511,8 @@ BUG: Have to call - not sure if this is still occuring
 
       <div style="font-size: 18px;">
         <a href="../../community/start/">Get Started</a> | 
-        <a href="../../io/">About Community Apps</a> | 
-        <a href="../projects/">Project Areas</a>
+        <a href="../../io/">Open Government Tools</a> | 
+        <a href="../../projects/">Project Areas</a>
       </div>
 
       <br>
@@ -654,5 +562,72 @@ $(".swiper-button-prev").click(function () {
 </script>
 
 <link rel="stylesheet" href="/localsite/css/fonts/materialicons/icon.css" id="/localsite/css/fonts/materialicons/icon.css" />
+
+
+<!-- #dae8eb -->
+<!-- psd resides in smartdata -->
+
+  <!--
+  <section class="mockup" style="display:none">
+    <div class="lite liteshade" style="position:absolute;z-index:-1; width: 100%; top:1px; bottom:1px; opacity:.2">
+        <div style="position:absolute; bottom:0px; right:0px; width:65%; background-color: #dae8eb; text-align: center; overflow: auto; padding:0px; border:0px">
+                
+                <img src="../img/overview/banner-2.png" class="hideMobile" style="width:100%">
+            
+        </div>
+    </div>
+
+    <div class="content contentpadding">
+      <img src="../img/logo/code-for-america-and-earth.png" style="width:300px;"><br><br><br>
+
+      <h2>BEYOND CARBON</h2>
+      <h1>SUSTAINABLE COMMUNITIES<br>WEB CHALLENGE 2021</h1>
+      <h3>Our virtual Federal Challenge event culminates on Saturday, Oct&nbsp;2, 2021 with  community reps, web developers, designers, students and data scientists working together to expand open-source tools for $10,000+ in prizes.</h3>
+      <br>
+
+      <a href="../../community/challenge/">Challenge Details</a>
+    </div>
+  </section>
+
+
+  <section class="mockup" style="display:none">
+    <div class="content contentpadding">
+
+      
+      <h1>WELCOME!</h1>
+      <h3>
+        <ul>
+        <li>Tell us your name and background</li>
+        <li>How you heard about event</li>
+        <li>Your city and state/province</li>
+        <li>Any specific topics of interest</li>
+        </ul>
+      </h3>
+
+
+      
+
+      <div style="display:block; width:100%">
+        <br><br><br>
+        <img src="../img/logo/epa.png" style="width:120px; float:left; margin-right:55px; margin-bottom:30px">
+        <img src="../img/logo/georgia.png" style="width:145px; float:left; margin-top: -4px; margin-left:3px; margin-right:50px; margin-bottom:30px">
+        <img src="../img/logo/code-for-america-and-earth.png" style="width:250px; float:left; margin-left:3px; margin-right:60px">
+      </div>
+      
+
+    </div>
+  </section>
+
+  <h1>CHALLENGE PARTNERS</h1>
+  <h3>
+    <ul>
+    <li>US Enviromental Protection Agency<br>Southeast Region #4 (ORD/R4)</li>
+    <li>Georgia Center of Innovation for Energy Technology</li>
+    <li>Code for America - Code for Atlanta and other city affiliates</li>
+    <li>General Dynamics Information Technology (GDIT)</li>
+    </ul>
+  </h3>
+  -->
+
 </body>
 </html>

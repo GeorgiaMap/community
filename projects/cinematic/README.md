@@ -1,20 +1,19 @@
 ## Image/Video Generation
 
-[Stability AI API](https://dreamstudio.com/api/) - [StableStudio UX](https://dreamstudio.com/studio/) - [Image Generator](https://dreamstudio.ai/generate)
+[Our Storyboard Generator](../../../requests/) - Location image prompts based on area industries and local impact data.
 
 For hero images, input-output visualizations and training resources.  
 Themes examples: Last Airbender and Marvel Comics APIs
 
 Project areas:  
 
-1. Save generated images using GitHub Actions (or a CoLab script) with the [Stability.AI API Platform](https://platform.stability.ai/), the [GetImg Stable Diffusion API](https://getimg.ai/tools/api), the upcoming [Midjourney API](https://tokenizedhq.com/midjourney-api/), and/or <a href="https://replicate.com/docs/get-started/nextjs">Replicate.com NextJS</a>. Steps for installing [Stable Diffusion on Windows](https://stable-diffusion-art.com/install-windows/).
+1. Save generated images using GitHub Actions (or a CoLab script) with the [GetImg Stable Diffusion API](https://getimg.ai/tools/api), the [Midjourney API](https://piapi.ai/midjourney-api), or <a href="https://replicate.com/docs/guides/nextjs">Replicate.com NextJS</a>. Steps for installing [Stable Diffusion on Windows (Automatic1111)](https://stable-diffusion-art.com/install-windows/).
 
-2. Automate pulling UN Comtrade input-output data using GitHub Actions to create static files to use with our global search filters. Our <a href="/data-pipeline/international/">International data prep</a> page  
+2. Pull UN goal data using to create static files to using Google Data Commons with our <a href="../../../localsite/timeline/">UN Goal Timelines</a>.  Integrate additional [United Nations Comtrade data visualizations](https://comtradeplus.un.org/Visualization/Labs). 
 
-3. Find and embed/fork existing [United Nations Comtrade data visualizations](https://comtradeplus.un.org/Visualization/Labs). 
-
-4. [Apache ECharts 3D Globe](https://echarts.apache.org/examples/en/editor.html?c=globe-layers&gl=1). Could also update timeline slider in OpenStreetMaps so earthquake locations change as slider moves on <a href="https://model.earth/country-data/map/">3D Globe with Timeline</a>. Here's a version with [changing country boundaries](/mbgl-timeslider/demo/).
-
+<!--
+3. [Apache ECharts 3D Globe](https://echarts.apache.org/examples/en/editor.html?c=globe-layers&gl=1). Update timeline slider in OpenStreetMaps so earthquake locations change as slider moves on <a href="https://model.earth/country-data/map/">3D Globe with Timeline</a>. Here's a version with [changing country boundaries](https://model.earth/mbgl-timeslider/demo/).
+-->
 
 ## Input-Output Visualization
 
@@ -26,14 +25,6 @@ NAICS 111339 - Other Noncitrus Fruit Farming closeup, Ecuador landscape
 
 <img src="/io/coders/img/DreamStudio_NAICS_111339_Other_Noncitrus_Fruit_Farming_closeup__4bb46868-c345-423c-b291-34f636f9c9d9.png" style="width:100%">
 NAICS 111339 "Other Noncitrus Fruit Farming" closeup in Ecuador
-
-
-<!--
-3. Add to our [interface in Figma](https://www.figma.com/file/mVZUSQCMBsIMu9bp7Y8qsS/Neighborhood-Impact-Footprint?node-id=18%3A6) for showing everyone's real-time score for 24 impact areas. Install [Figma Unify](https://www.figma.com/community/plugin/1009866256233241860/Unify%3A-Figma-to-React%2C-React-Native-and-HTML%2FCSS) to convert Figma components into clean React.  
-4. Explore [NextJS](https://nextjs.org/) using our [Engine-Storybook](https://github.com/localsite/engine-storybook) repo.  
--->
-
-
 
 
 <img src="https://i.annihil.us/u/prod/marvel/i/mg/3/40/4bb4680432f73/standard_fantastic.jpg" style="float:right; margin:0 0 20px 20px">

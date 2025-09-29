@@ -1,50 +1,33 @@
-[Display Datasets](../../../localsite/info/data) 
+[Community Data](/community-data/)
 
 # Census Reporter  
 
-We could upgrade [Census Reporter zipcode demographic maps](https://censusreporter.org/profiles/86000US30308-30308/) to include [environmentally-extended input-output](../../../io/charts/) widgets 
-and [social safety net tools](https://www.codeforamerica.org/features/bringing-social-safety-net-benefits-online/).  
+[CensusReport Django Repo](https://github.com/censusreporter/censusreporter)
 
-[Our Python 3 Fork](https://github.com/modelearth/map)  
+TO DO: Determine if CensusReport repo above has been upgraded to Python 3
 
-### CensusReporter Frontend with Google Data Commons API
- 
-Using the [frontend](https://censusreporter.org/profiles/16000US1304000-atlanta-ga/) from the Python 3 fork of CensusReporter, we'll point demographics charts at the Google Data Commons API (retain support for PostgreSQL).  
+TO DO: Create example of hosting frontend charts using the API rather than hosting Django or Postgres directly. Optionally pull from Google Data Commons and generate international pages.
 
-**Goal**
-
-Allow any country to integrate their demographic, industry and environmental data for analysis by machine learning algorithms using a common Schema within the Google Data Commons API.  
-
-The Wazimap fork provides a Python 3 version of Census Reporter with international usage.  
-We're aiming to bring it in sync with the Python 2 version used by [CensusReporter.org](https://CensusReporter.org).  
-
-Start from our [github.com/modelearth/map](https://github.com/modelearth/map) fork of Wazimap Census Reporter.  
+<!--
+Deleted [Our Python 3 Fork](https://github.com/modelearth/map) - Forked from wazimap (which was archived Aug 2023).
 Wazimap is maintained by [OpenUp](https://openup.org.za/) and in used in Africa and India.  
+However, Wazimap has not had significant updates in recent years.
+-->
+
+**CensusReporter frontend integration with USEEIO Industry Impact Charts and Google Data Commons API**
+ 
+CensusReporter Detail Pages: [Atlanta](https://censusreporter.org/profiles/16000US1304000-atlanta-ga/)
+Compare with data.Census.gov [Atlanta](https://data.census.gov/cedsci/profile?g=1600000US1304000)  
+
 
 <!--
 Place Wazimap fork of CensusReporter into a [Python Docker container](https://hub.docker.com/_/python) for easier install.  
 Place Census Reporter database into [PostgreSQL Docker container](https://hub.docker.com/_/postgres) with files for Docker secrets.
 -->
 
+<!--
 Set up Docker to [deploy to Heroku](https://github.com/datamade/how-to/blob/master/heroku/deploy-a-django-app.md) using a [containerization template](https://github.com/datamade/how-to/tree/master/docker/templates) (includes Django and Gatsby). Learn more [about using Heroku or AWS](https://datamade.us/blog/why-were-switching-to-heroku/).  
-
-**Challenge**  
-
-How can demographics data, maps and machine learning be integrated with [social safety net programs](https://www.codeforamerica.org/features/bringing-social-safety-net-benefits-online/)?
- 
-**Pages to Compare**  
-[CensusReporter.com Atlanta](https://censusreporter.org/profiles/16000US1304000-atlanta-ga/) - [GitHub repo](https://github.com/censusreporter/censusreporter) - [Our Python 3 Fork](https://github.com/modelearth/map)  
-[Data.Census.gov Atlanta](https://data.census.gov/cedsci/profile?g=1600000US1304000)  
-
-**Areas for improvements**  
-Zip and county maps  
-Fast loading from pre-processed static files  
-International contributions  
-Sortable tables and lists below maps  
-
-**React Interface**  
-Expand upon the [EPA's Environmentally-Extended IO Charts](../../../io/charts/) and integrate with community data portals.  
-
+-->
 
 
 ## Postgres Setup

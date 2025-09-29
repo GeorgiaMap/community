@@ -1,6 +1,6 @@
 ## Related Resources
 
-1. [Our map page html](../../localsite/map/) is pulled into the [our industry evaluator tool](/localsite/info/#show=smart&state=GA) along with [EPA IO widgets](../../io/charts/).  
+1. [Our map page html](../../localsite/map/) is pulled into [our industry evaluator tool](/localsite/info/#show=smart&state=GA) along with [EPA IO widgets](../../io/charts/).  
 
 1. [Map starters](../start) and [Leaflet route maps](../start/routing/) for driving tours and deliveries.
 
@@ -41,8 +41,11 @@ REST example at the [BuildingTransparency.org Open EPD API](https://openepd.buil
 <!--
 - [Attend a meetup](../../io/coders/) and help setup [Citizen Lab Engagement Tools](https://www.citizenlab.co) to provide mobile survey apps with Open Seattle and Code for Atlanta.
 
-Blitz is undergoing updates to independently extend NextJS and other.  Reactivate in a few months.
+Blitz is undergoing updates to independently extend NextJS (React).  
+Reactivate in a few months.
 Experiment with Tailwind CSS in our [planning repo](https://neighborhood.org/planning/#display=planning.md) ([GitHub](https://github.com/localsite/planning))
+
+flightcontrol.dev for AWS hosting
 
 - Apply the Blitz survey fields (Question and Choice) to our Real World 2.0 [planning repo](https://neighborhood.org/planning/#display=planning.md) ([GitHub](https://github.com/localsite/planning)) from the [Blitz survey builder tutorial](https://blitzjs.com/docs/tutorial) and [voting app](https://dev.to/anubra266/full-stack-react-in-blitzjs-and-chakra-ui-part-2-38n4).
 -->
@@ -51,7 +54,7 @@ Experiment with Tailwind CSS in our [planning repo](https://neighborhood.org/pla
 
 
 
-- Add to our <a href="../../apps/beyondcarbon/#state=NC">Carbon Cycle json display</a> to use the new <a href="https://github.com/modelearth/beyond-carbon-scraper">Carbon Cycle Scraper and Fuser</a> for [state CO<sub>2</sub> colors](../../apps/beyondcarbon/#mapview=country). Activate updates already pulled in from [Jenna's fork](https://github.com/JennaFlan2426/beyond-carbon-scraper) so more integers are included in the merged file.
+- Add to our <a href="../../apps/beyondcarbon/#state=NC">Carbon Cycle json display</a> to use the new <a href="https://github.com/modelearth/beyond-carbon-scraper">Carbon Cycle Scraper and Fuser</a> for [state CO<sub>2</sub> colors](../../apps/beyondcarbon/#geoview=country). Activate updates already pulled in from [Jenna's fork](https://github.com/JennaFlan2426/beyond-carbon-scraper) so more integers are included in the merged file.
 
 <!--
 - Inquire with See-Click-Fix regarding adding domains so we can avoid [CORS error](../../community/resources/diffbot/#feed=open311) when pulling from the <a href="http://dev.seeclickfix.com/">See-Click-Fix open311 API</a>.
@@ -60,26 +63,14 @@ Experiment with Tailwind CSS in our [planning repo](https://neighborhood.org/pla
 - Integrate and update <a href="https://www.cloudcarbonfootprint.org">CloudCarbonFootprint.org widgets</a>. Apply to sites hosted using GitHub Pages and CDN caching.
 
 
-
-
 <h4>Democracy Lab</h4>
 
-<a href="https://www.democracylab.org/projects/834">Neighborhood.org Democracy Lab profile</a> and <a href="https://www.figma.com/file/Zk29COFG5bEQoISUBLPdpE/Neighborhood.org?node-id=0%3A1">Figma Boards</a>.
-Our [DemLab Project API Pull test](../../io/template/feed/demolab.html) and the [DemLab Contributor Guide](https://docs.google.com/document/d/1OLQPFFJ8oz_BxpuxRxKKdZ2brmlUkVN3ICTdbA_axxY/edit#).
-
+<a href="https://www.democracylab.org">Democracy Lab</a> - [DemLab Project API Pull (inspect)](https://model.earth/io/template/feed/demolab.html)<!--Contributor Guide](https://docs.google.com/document/d/1OLQPFFJ8oz_BxpuxRxKKdZ2brmlUkVN3ICTdbA_axxY/edit#).-->  
+[The Gov Lab - NYU](https://thegovlab.org/)  
 <!--
 <a href="https://docs.google.com/document/d/1uqPZ_9hPP7q3_Pc2JugjQKTB94ePRG0vwshqfyqm4R0/">Scope of Work</a>. UX/UI
 and <a href="https://www.ewg.org/">EWG</a>
 -->
-
-<h4>Citizens Foundation</h4>
-
-Connecting governments & citizens through constructive ideas and debate that minimizes personal arguments and trolling.
-
-[Your Priorities](https://www.yrpri.org/)  
-[The Gov Lab - NYU](https://thegovlab.org/)  
-[Horiozn Europe](https://ec.europa.eu/info/research-and-innovation/funding/funding-opportunities/funding-programmes-and-open-calls/horizon-europe_en)  
-[Citizen Lab](https://www.citizenlab.co/)  
 
 <h4>Emissions Dashboard</h4>
 
@@ -89,7 +80,7 @@ Georgia Tech, UGA, Emory and the Ray Anderson Foundation are developing an [Emis
 #### All The Places - Location Data
 
 Process [All the Places](https://www.alltheplaces.xyz/) into zip folders in our [zip/io/data repo](https://model.earth/zip/io/) <!-- Contributor: Kathryn -->
-Here's our example of [pulling and uncompressing the places file](https://github.com/modelearth/alltheplaces_curl) into a repo.
+Here's our example of [pulling and uncompressing the places file](https://github.com/modelearth/places-data) into a repo.
 
 
 <!-- https://spatial.chat/s/QiqoChat2 -->

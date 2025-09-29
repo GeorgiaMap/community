@@ -3,28 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<title>Impact Modeling Tools</title>
-<link rel="icon" type="image/x-icon" href="img/logo/favicon.png" />
+<title>Data Visualization</title>
+<link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Build projects with Life Cycle Assessment data from the US Environmental Protection Agency (EPA), US Bureau of Economic Analysis (BEA), US Department of Commerce and the US Bureau of Labor Statistics (BLS)">
-<meta name="keywords" content="Input, Output, Environmental, Impact, Model, Commodities, Industries, Energy, Agriculture, Forestry, Manufacturing, Waste, Energy, Bioproducts, Inflow, Outflow, Job Levels, Value-Added, Air Quality, Greenhouse Gas Emissions, GHG, Land Use, Health, US Bureau of Economic Analysis, BEA, US Department of Commerce, US Environmental Protection Agency, EPA">
+<meta name="description" content="Build projects with Google Data Commons, eCharts, chartJS, Product Life Cycle Assessment, Environmental Impact Modeling Tools, Industry comparison data from the US Environmental Protection Agency (EPA), US Bureau of Economic Analysis (BEA), US Department of Commerce and the US Bureau of Labor Statistics (BLS)">
+<meta name="keywords" content="Data Visualization, Environmental, Impact, Model, Commodities, Industries, Supply Chain, Energy, Agriculture, Forestry, Manufacturing, Waste, Energy, Bioproducts, Inflow, Outflow, Job Levels, Value-Added, Air Quality, Greenhouse Gas Emissions, GHG, Land Use, Health, US Bureau of Economic Analysis, BEA, US Department of Commerce, US Environmental Protection Agency, EPA, Input, Output">
+
+<!-- load first for fastest map speed -->
+<!--
+TO DO: Revise use of JQuery at end of navigation.js within:
+$(document).on("change"
+<script type="text/javascript" src="../localsite/js/navigation.js" id="/localsite/js/navigation.js"></script>
+-->
 
 <link type="text/css" href="../localsite/css/base.css" rel="stylesheet" id="/localsite/css/base.css" />
 <script type="text/javascript" src="../localsite/js/d3.v5.min.js" id="/localsite/js/d3.v5.min.js"></script>
 <script type="text/javascript" src="../localsite/js/jquery.min.js" id="/localsite/js/jquery.min.js"></script>
 <script type="text/javascript" src="../localsite/js/showdown.min.js" id="/localsite/js/showdown.min.js"></script>
 <script type="text/javascript" src="../localsite/js/localsite.js?showheader=true&showsearch=true"></script>
-
-<!--
-Code for America and the US Environmental Protection Agency (EPA) are awarding high school educators and their students who help create inspiring tools during the annual Sustainable Communities Web Challenge. We encourage you to also invite programmers, community reps and designers. $10,000 in prizes will be awarded to participants on Oct 2nd.
-
-Educators and their high school students are invited to join us virtually to create a community page that visualizes your community's path to a sustainable, net zero future. A community can be your neighborhood, town, city, county, region or state. You'll use data and widgets from the US EPA and other sources to share your vision for a sustainable community.
-
-
-     Work includes biomass waste to energy, the transition to electric vehicle manufacturing, environmental impact indicators, advanced biofuels and reducing greenhouse gas emissions.
-
-Economic data, community resources and planning input combined with the EPA's new environmental indicator models.
--->
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
@@ -37,11 +33,24 @@ Economic data, community resources and planning input combined with the EPA's ne
 
 
 <script>
+  waitForElm('#nullschoolHeader').then((elm) => {
+    //$("#nullschoolHeader").show();
+  });
+  
+  // Temporary
   $(document).ready(function () {
       setTimeout(() => {
-        showGlobalMap("https://earth.nullschool.net/#current/wind/surface/level/orthographic=-73.52,34.52,532");
+        let latLonZoom = "-73.52,34.52,532";
+        if ($("#globeLatitude").val() && $("#globeLongitude").val()) {
+          latLonZoom = $("#globeLongitude").val() + "," + $("#globeLatitude").val() + ",532";
+        } else if (localStorage.latitude && localStorage.longitude) {
+          latLonZoom = localStorage.longitude + "," + localStorage.latitude + ",532";
+        }
+        showGlobalMap(`https://earth.nullschool.net/#current/wind/surface/level/orthographic=${latLonZoom}`);
       },1000);
   });
+  
+
   //loadMarkdown("README.md", "readmeDiv", "_parent");
   //// param.startTitle = "Model Earth"; // Trigger header
 </script>
@@ -51,7 +60,7 @@ Economic data, community resources and planning input combined with the EPA's ne
     display: none;
 }
 #fullcolumn {
-    background: #fafafa;
+    backgroundX: #fafafa;
 }
 .gobutton {
     margin: 0px;
@@ -103,13 +112,40 @@ Economic data, community resources and planning input combined with the EPA's ne
   right: 20px;
   bottom: 20px;
 }
-#logoRow {
+#logoRowXXX {
   border-top: 1px solid #ccc;
 }
 #logoRow a {
-  margin-right: 80px;
+  margin-right: 64px;
   display:block;
   float: left;
+}
+@media (max-width: 800px) {
+  #logoRow {
+    margin-left: 30px;
+  }
+  #logoRow a {
+    float: none;
+    clear: both;
+    margin-right: 0px;
+    margin-top: 0px;
+    margin-bottom: 20px;
+  }
+  #logoRow a > img {
+    width: 100% !important;
+    max-width: 250px;
+  }
+  #dllogo {
+    max-width: 200px !important;
+
+  }
+  #galogo {
+    max-width: 200px !important;
+  }
+}
+.dark #logoRowHolder {
+  background: #bbb;
+  min-height: 100px;
 }
 .popout {
     border: 1px solid #ccc;
@@ -125,13 +161,16 @@ Economic data, community resources and planning input combined with the EPA's ne
         display: none;
     }
 }
-@media (max-width: 600px) {
-    .content {
-      padding: 0px;
-    }
-    .contentpadding {
-      padding: 0px;
-    }
+
+@media (min-width: 980px) and (max-width: 1100px) {
+  .topcolumns h2 {
+    font-size: 18px;
+  }
+}
+@media (min-width: 980px) and (max-width: 1100px) {
+  .topcolumns h2 {
+    font-size: 16px;
+  }
 }
 
 /* Add to widget.css */
@@ -153,20 +192,19 @@ tbody tr td:nth-child(2) {
 
 </head>
 
-
 <body>
-<div style="clear:both; background-color:#fff; min-height:250px">
+<div style="clear:both; min-height:250px; display:none" class="displayOnload">
 
-  <div class="topcolumns content contentpadding" style="padding-top:30px; padding-bottom:0px; max-width: 1230px">
+  <div class="topcolumns content contentpadding" style="padding-top:0px; padding-bottom:0px; width:100%; max-width:1230px">
 
     <div class="pageColumn">
       <div class="pageColumnInside">
 
       <h2>Environmental Impacts</h2>
 
-      Choose your location to see which industries are active in your community, which create the most jobs and which have the biggest environmental impacts.<br><br>
+      Choose your location to see which industries are active in your community, which create the most jobs and which have impacts on air, water and health.<br><br>
 
-      <a href="../localsite/info/" class="btn btn-white">Local Industries</a>
+      <a href="../localsite/info/" class="btn btn-success">Local Industries</a>
       <!--
       <a href="../../community/challenge/">Join our Newsletter</a>
       -->
@@ -178,10 +216,10 @@ tbody tr td:nth-child(2) {
     <div class="pageColumn">
       <div class="pageColumnInside">
 
-      <h2>Collaborative Frameworks</h2>
+      <h2>Collaborative Data Science</h2>
       We're collaborating with programmers, students, community reps and designers to create inspiring tools. Get involved adding datasets and updating widgets.<br><br>
 
-      <a href="projects/" class="btn btn-white">View Project Areas</a>
+      <a href="../projects/" class="btn btn-success" style="background-color:rgb(152, 139, 252);border-color:rgb(152, 139, 252)">View Project Areas</a>
 
       </div>
     </div>
@@ -190,47 +228,71 @@ tbody tr td:nth-child(2) {
       <div class="pageColumnInside">
         <h2>Product Lifecycle Tools</h2>
 
-        We've teamed up with sustainablity experts, data scientists and educators around the world to integrate systems in community-focused environmental impact pages.<br><br>
+        Join us in creating Open Footprint profiles for locations that convey a wide range of data on product lifecycles, individual impacts, state input-output and global supply chains.
 
-        <a href="../localsite/tools/" target="_parent" class="btn btn-white">Lifecycle Tools</a>
+        <!--
+         We've teamed up with data scientists and educators around the world to integrate data and visualizations in environmental-focused product lifecycle&nbsp;tools.
+        -->
+        <br><br>
+
+        <a href="../community/tools/" target="_parent" class="btn btn-success" style="background-color: rgb(31, 83, 173); border-color: rgb(31, 83, 173)">Lifecycle Tools</a>
 
       </div>
     </div>
 
     <div style="clear:both"></div>
-    <br><br>
 
   </div>
 
 </div>
-
+<div style="clear:both"></div>
 
 <div id="readmeDiv"></div>
 
-<div class="hideMobile" id="logoRow">
-  <div class="content contentpadding" style="padding-top:40px; padding-bottom:0px; max-width: 1210px">
+<div class="hideMobileX">
+  <div class="content contentpadding" style="max-width:1230px; padding-top:0px; padding-bottom:20px;">
 
-    <div style="float:left; margin-bottom:20px">
-      <a href="https://www.democracylab.org/projects/834" target="_blank"><img src="../community/img/logo/orgs/democracy-lab.png"></a>
-      <!-- Reduce this logo: -->
-      <a href="https://model.georgia.org" target="_blank" style="margin-top:-4px"><img src="img/logo/georgia_usa_gray.png" style="width:140px;"></a>
-      <a href="https://www.codeforatlanta.org" target="_blank" style="margin-top:-4px"><img src="../community/img/logo/orgs/code-for-atlanta.png" style="width:145px;"></a>
-    </div>
+      <a href="../nisar/">NISAR</a> &ndash;  The first dual frequency radar imaging satellite tracks earth surface elevation changes with centimeter-level accuracy.<br><br>
 
-    <div style="float:left; margin-bottom:20px">
-      <a href="https://openseattle.org" target="_blank" style="margin-top:-10px"><img src="../community/img/logo/orgs/open-seattle.png" style="width:140px;"></a>
-      <a href="https://codeforamerica.org" target="_blank" style="margin-right:0px !important;"><img src="img/logo/code-for-america-and-earth.png" style="width:150px"></a>
-    </div>
-    <!--
-    <a href="https://data.world" target="_blank" style="margin-top:-10px"><img src="../community/img/logo/orgs/dataworld.png" style="width:140px;"></a>
-    -->
-    <!-- https://data.world/neighborhood 
-    -->
+      <!--
+      <a href="../profile/trade/">Our International Trade Flow Visualizations</a> use <a href="https://pymrio.readthedocs.io/en/latest/intro.html">Pymirio</a> and <a href="https://mario-suite.readthedocs.io/en/latest/intro.html">MARIO Input-Output Analysis</a><br><br>
 
-    
-    <div style="clear:both"></div>
+      <b>Reducing Expenses, Expanding Opportunities</b><br>
+      1.) Reduce and eliminate government expenses through transparancy and open collaboration.<br>
+      2.) Identify products and choices that minimize environmental impacts around <a href="/data-commons/">UN&nbsp;Goal&nbsp;Timelines</a>.<br>
+      3.) Foster opportunities for dynamic pricing that increase inclusion, accountability, and reduced barriers.<br><br>
+      -->
+
   </div>
 </div>
+
+<!-- Reduce georgia_usa_gray.png logo below. -->
+
+<div id="logoRowHolder"><hr>
+<div class="content contentpadding" styleX="padding-top:40px; padding-bottom:0px; max-width:1230px" id="logoRow">
+
+<div style="margin-bottom:0px">
+  <a href="https://www.democracylab.org/projects/834" target="_blank"><img id="dllogo" src="../community/img/logo/orgs/democracy-lab.png"></a>
+  <a href="https://model.georgia.org" target="_blank" style="margin-top:-4px;margin-right:64px !important;"><img id="galogo" src="img/logo/georgia_usa_gray.png" style="width:140px;"></a>
+  <a href="https://datacommons.org" target="_blank" style="margin-top:11px;margin-right:51px !important;"><img src="../community/img/logo/orgs/GoogleDataCommons.png" style="width:190px;"></a>
+  <a href="https://exiobase.eu" target="_blank" style="margin-top:8px;margin-right:51px !important;"><img src="../community/img/logo/orgs/exiobase.png" style="width:190px;"></a>
+  <div style="clear:both;"></div>
+</div>
+</div>
+
+<!--
+<div style="float:left; margin-bottom:20px">
+  <a href="https://openseattle.org" target="_blank" style="margin-top:-10px"><img src="../community/img/logo/orgs/open-seattle.png" style="width:140px;"></a>
+  <a href="https://codeforamerica.org" target="_blank" style="margin-top:-5px;margin-right:0px !important;"><img src="img/logo/code-for-america-and-earth.png" style="width:160px"></a>
+</div>
+-->
+
+</div>
+<div style="clear:both"></div>
+
+
+
+
 
 <!--
 <a href="../localsite/info/"><img src="img/overview/slides/perfect-storm-heatmap.jpg" class="hideMobile" style="float:left; width: 100%; margin-top:0px; margin-bottom:20px"></a><br>
@@ -272,7 +334,7 @@ tbody tr td:nth-child(2) {
             <div style="marginXX: 0 auto;">
                 <div>
                   <h1 style="color:#fff">Impacts of Goods & Services</h1>
-                  Click a column header to sort by impact. &nbsp;<a href="../localsite/info/#mapview=country" style="color:#fff; text-decoration:underline">View by state and county</a>
+                  Click a column header to sort by impact. &nbsp;<a href="../localsite/info/#geoview=country" style="color:#fff; text-decoration:underline">View by state and county</a>
                 </div>
                 <div class="matrix-title">Goods & Services</div>
                 <div class="sector-list">
@@ -326,7 +388,10 @@ tbody tr td:nth-child(2) {
 }
 @media (max-width: 600px) {
   .pageColumnInside {
-    padding-top: 15px;
+    padding-top: 0px;
+  }
+  .pageColumnInside {
+    padding-bottom: 0px;
   }
   #hero-rect-new {
     margin-left: 40px !important;
@@ -354,7 +419,7 @@ tbody tr td:nth-child(2) {
 <div class="lite">
 <div id="main-info-contentX" class="content contentpadding" style="clear:both; padding-top:50px;">
 
-  <div class="floatRight hideMobile" style="border:1px solid #ccc; margin-bottom:0px; background-color:#eee">
+  <div class="floatRight hideMobile" style="border:1px solid #ccc; margin-bottom:0px;">
     <div>
       <a href="../io/coders/" target="_parent" ><img id="right-image" src="img/overview/code-for-america-square.jpg" style=""></a>
     </div>
@@ -369,7 +434,7 @@ tbody tr td:nth-child(2) {
         <h2 style="margin-top:0px;padding-top:0px;border:0px">[TBD]<!--Sunday, Oct. 25, 2020--></h2>
       </div>
 
-      Collaborate on projects with the US Environmental Protection Agency (EPA) in areas like international impact footprint labels, waste-to-energy, the transition to electric vehicle manufacturing, local environmental indicators and mapping, advanced biofuels, and reduced greenhouse gas emissions.
+      Collaborate on projects using US Environmental Protection Agency data and Exiobase international trade flow for environmental impact reports.
 
       <!--
       <a href="../io/coders/" target="_parent" style="white-space: nowrap;">Learn More and Get Involved</a>
@@ -412,13 +477,13 @@ To start, the challenge asks participants to choose a location of interest – r
 -->
 
 <p>
-<a style="font-size:18px" href="../localsite/info/#mapview=counties">Explore your community's impacts</a><br>
+<a style="font-size:18px" href="../io/">Explore your Community's Impacts</a><br>
 Companies like Amazon and General Motors are using the US Environmentally Extended Input-Output <a href="https://www.epa.gov/land-research/us-environmentally-extended-input-output-useeio-models">(USEEIO) Models</a> to analyze economic and environmental impacts across all economic sectors. The model is available for community planning, business development and environmental education through our <a href="../../localsite/info/">Local Industry Comparison Tools</a><br>
 
 </p>
 
 <p>
-<a href="../io/" style="font-size:18px">Learn more about USEEIO Community Pages</a><br>
+<a href="../io/learn/" style="font-size:18px">Tools for Research and Teaching</a><br>
   Using an economy-wide input-output model of industries, households and the environment, the new online tools help communities identify opportunities for both economic growth and environmental sustainability.
 
 </p>
@@ -454,6 +519,9 @@ Learn more about USEEIO.
   overflow: auto;
   float: left;
 }
+.dark #hero-rect-new {
+  background-color: rgba(33, 33, 33, 0.9);
+}
 </style>
 
 <div class="hideMobile" style="position:relative;height:550px">
@@ -463,20 +531,27 @@ Learn more about USEEIO.
         <div style="float:left; margin-right:30px">
             <div id="hero-rect-new">
               <h3>Project Areas</h3>
-
-              <a href="https://model.earth/country-data/map/">New: 3D Globe</a> - Dev for Open Street Map<br><br>
-
-              <a href="../../apps/">Starter Pages</a> - Copy and add parameters<br>
-              <a href="../../community/projects/#label">JQuery/React</a> - Environmental Profile Editor<br>
-              <a href="../../community/projects/#io">React/D3</a> - Inflow-Outflow and Sankey Charts<br>
-              <a href="../../community/projects/#data">Data Pipeline</a> - GitHub Actions<br>
-              <a href="../../community/projects/#python">Python</a> - Machine Learning<br>
+              <a href="../../projects/">Active Projects</a> - Volunteer Team<br>
+              <!--
+              <a href="../../apps/">Starter App Pages</a> - Copy and add parameters<br>
+              
+              <a href="https://model.earth/country-data/map/">3D Globe</a> - MapBox<br>
+              <a href="https://echarts.apache.org/examples/en/index.html#chart-type-globe">3D Globe</a> - Apache eCharts<br>
+              -->
+              <a href="../../io/charts/">React/D3</a> - Inflow-Outflow Charts<br>
+              <a href="../../data-pipeline">Data Pipeline</a> - Data Sources and Integrations<br>
+              <a href="../../realitystream/">Python</a> - Machine Learning<br>
               <a href="../../community/projects/#ux">UX/UI</a> - Nutrition Labels / Scenario Reporting<br>
-              <a href="../../community/projects/#explore">Maps</a> - Data Visualizations<br>
+              <a href="/io/coders/" style="display:block;margin-top:10px">Weekly Coding Meetups</a>
+              
+              <!--
+              
               <a href="../../community/projects/#cinematic">Cinematic</a> - Environmental Impact Apps<br>
               <a href="../../apps/smm/">3.0 Mockup</a> - Lifecycle Tools<br>
-              <a href="../../community/projects/" style="display:block;margin-top:10px">View Project List</a>
-              
+
+              <a href="../../community/projects/#label">JQuery/React</a> - Environmental Profile Editor<br>
+              -->
+
             </div>
         </div>
         <div style="float:left">

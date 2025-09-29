@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <title>2022 Web Challenge</title>
-<link rel="icon" type="image/x-icon" href="../img/logo/favicon.png" />
+<link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script type="text/javascript" src="../../localsite/js/jquery.min.js" id="/localsite/js/jquery.min.js"></script>
 <script type="text/javascript" src="../../localsite/js/d3.v5.min.js" id="/localsite/js/d3.v5.min.js"></script>
@@ -27,16 +27,6 @@
 
 </head>
 
-<!--
-    Notes:
-    https://www.challenge.gov/toolkit/
-
-    12-digit FIPS Code - state, county, tract, block group
-    https://www.policymap.com/2012/08/tips-on-fips-a-quick-guide-to-geographic-place-codes-part-iii/
-
-    NC Vue Map
-    https://github.com/codeforamerica/covid19-help-wanted/issues/4
--->
 <body>
 <script>
   //loadMarkdown("event.md", "eventDiv", "_parent");
@@ -140,7 +130,7 @@
     <div style="background-color: #dae8eb; margin: 0 auto; overflow: auto; padding:0px; border:0px">
         <div id="heroHolder" style="max-width:5000px; text-align:left; position:relative;">
 
-            <img id="heroImage" src="../img/hero/earth-artemus-2022.png" style="max-width:5000px;position: absolute;">
+            <img id="heroImage" src="../img/hero/earth-artemus-2022.png" style="max-width:5000px;position: absolute;" title="View from NASA's unmanned Orion spacecraft before traveling behind the Moon during Artemis I mission in 2022.">
             
             <div style="position:absolute;z-index:2;width:100%">
                 <div style="float:left">
@@ -233,10 +223,6 @@
             
                 <div id="navcolumn" style="position:relative; float:left; text-align:left; margin-right: 30px">
                 </div>
-
-                <!--
-                <a href="challenge/" class="hideMobile1200"><img src="../img/overview/earth-happy.png" class="hideMobile" style="float:left; max-height:300px; margin-top:0px; margin-bottom:20px"></a>
-                -->
             
                 <style>
                 #introlist h3 {
@@ -265,25 +251,24 @@
 
                     <h3>4. Create a community page</h3>
                     Check out our existing <a href="../../io/">community pages</a> and learn how to make your own. The easiest way is to fork the <a href="../../apps">apps</a> directory, then copy and edit an existing app folder. Also, clone the <a href="https://github.com/modelearth/localsite">localsite repo</a> into the same webroot as the apps folder to provide support files. Read more about <a href="../../localsite/start/">how to create your own local site</a>.<br>
-                                        
-                    <h3>5. Create beautiful content and add new functionality</h3>
+                    
+                    <h3>5. Add content and new functionality</h3>
                     Create new visuals and content for your community page. Embed new or existing <a href="../../io/charts/">USEEIO widgets</a> in your page. We encourage page designs that can be reused by multiple communities.<br>
                     
                     <!--Show before-and-after scenarios, create comparisons, and <a href="../../apps/">share apps</a> within your favorite websites<br><br>-->
                     <!--<a href="../io/team/">Contact Us for Pointers</a> | -->
-                    <!-- <a href="meetups/">Join us on Slack</a> | <a href="../projects/">View Project Areas</a><br><br> -->
+                    <!-- <a href="meetups/">Join us on Slack</a> | <a href="/projects/">View Project Areas</a><br><br> -->
                     <br>
 
                     <b>Learn more:</b> <a href="how">Hot to Create a Local Site Page</a><br><br>
 
                     <!-- Also update in community index.html footer -->
                     <div style="margin-top:20px">
-                    <a href="../../community/projects" class="btn btn-warning">Project Areas</a>
+                    <a href="/projects" class="btn btn-warning">Project Areas</a>
                     <!--
                     <a href="registration/" class="btn btn-success">Register to participate</a> &nbsp;
                     -->
-                     <!-- <a href="../projects/" class="btn btn-warning">View Project Areas</a> -->
-                    <a href="meetups" class="btn btn-danger">Meetups and Slack Channels</a>
+                     
                     </div>
                     <br>
 
